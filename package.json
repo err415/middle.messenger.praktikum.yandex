@@ -1,0 +1,39 @@
+{
+  "name": "devspectre",
+  "version": "0.0.1",
+  "description": "Preprod Spectre",
+  "source": "src/index.html",
+  "scripts": {
+    "start": "parcel src/index.html --no-source-maps --target default --dist-dir ./build",
+    "start1": "parcel src/index.html --no-source-maps",
+    "start2": "parcel build src/index.html",
+    "watch": "parcel watch",
+    "build": "parcel build"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@anikin/parcel-transformer-handlebars-precompile": "^1.0.1",
+    "@parcel/transformer-inline-string": "^2.8.2",
+    "parcel": "^2.8.2",
+    "sass": "^1.57.1"
+  },
+  "targets": {
+    "default": {
+      "sourceMap": false
+    }
+  },
+  "dependencies": {
+    "handlebars": "^4.7.7"
+  },
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/err415/middle.messenger.praktikum.yandex.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/err415/middle.messenger.praktikum.yandex/issues"
+  },
+  "homepage": "https://github.com/err415/middle.messenger.praktikum.yandex#readme"
+}
