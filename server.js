@@ -1,19 +1,14 @@
 const express = require('express');
+const path = require('path');
+
 const app = express();
+const PORT = 3000;
 
-const host = '127.0.0.1';
-const port = 3000;
+app.use(express.static('./build'));
+app.use('/*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'build/src/index.html'));
+});
 
-app.use(
-    '/',
-    express.static(`${__dirname}/src`)
-);
-app.use(
-    '/uploads',
-    express.static(`${__dirname}/assets/images`)
-);
-app.use('/styles', express.static(`${__dirname}/css`));
-
-app.listen(port, host, function () {
-    console.log(`Server listens http://${host}:${port}`);
+app.listen(PORT, () => {
+    console.log(`Example app listening on port ${PORT}!`);
 });

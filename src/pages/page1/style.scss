@@ -1,0 +1,7 @@
+$fontStyle: italic;
+$fontWeight: 400;
+
+p.page1 {
+  font-style: $fontStyle;
+  font-weight: $fontWeight;
+}
