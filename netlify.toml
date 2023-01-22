@@ -1,6 +1,6 @@
 [build]
-  publish = "static"
-  command = "node server.js"
+command = "npm run build"
+publish = "build"
 [[redirects]]
 from = "/*"
 to = "/index.html"
