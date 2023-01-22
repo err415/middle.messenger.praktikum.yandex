@@ -1,6 +1,10 @@
 <div class="signin-wrapper">
 
-    <label>Введите ваш E-mail:</label>
-    <input class="input-signin" type="email" placeholder="Введите ваш E-mail">
-    {{{state.signinButton}}}
+            <h1>{{{state.signin.title}}}</h1>
+    <div class="signin-form">
+            <input class="input-signin" type="email" placeholder="Введите ваш E-mail">
+
+        <a href="/signin-pass">{{{state.signin.signinButton}}}</a>
+    </div>
+    <a id="link_to_register" href="/signup">Нет аккаунта?  - Зарегистрироваться</a>
 </div>

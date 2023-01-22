@@ -8,5 +8,19 @@ export const state = {
     content: 'Содержимое',
     fname: 'students',
     welcomeButton: button('welcome-btn','Войти'),
-    signinButton: button('welcome-btn','ДАЛЕЕ'),
+
+    signin: {
+        title: 'Авторизация',
+        signinButton: button('welcome-btn','ДАЛЕЕ'),
+        signinPassButton: button('welcome-btn','ВХОД'),
+    },
+    signup: {
+      title: 'Регистрация',
+        signupButton: button('welcome-btn','Зарегистрироваться'),
+
+    },
+    main: {
+        title: 'Здесть что-то будет!!! Осталость совсем немного... :)',
+
+    },
 }
