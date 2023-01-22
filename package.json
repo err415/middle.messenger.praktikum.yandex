@@ -16,6 +16,7 @@
     "parcel-transformer-hbs": "^1.0.4",
     "sass": "^1.57.1"
   },
+
   "targets": {
     "default": {
       "sourceMap": false,
