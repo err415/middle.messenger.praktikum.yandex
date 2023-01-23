@@ -1,0 +1,200 @@
+body,
+#root,
+.wrapper_err500,
+.wrapper_err404,
+.button,
+.welcome-wrap,
+.signin-form,
+.pass-form,
+.signin-wrapper,
+.signup-wrapper,
+.signin-pass-msg {
+  display: flex;
+}
+
+.signup-wrapper,
+.button,
+.welcome-wrap,
+.signin-wrapper,
+.signup-wrapper {
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+}
+
+.signup-wrapper,
+.signin-wrapper,
+.welcome-wrap,
+.signin-form,
+.pass-form {
+  flex-direction: column;
+}
+
+input, input:hover, input:focus, input:active {
+  border: none;
+  outline: none;
+  outline-offset: 0;
+  background: none;
+  border-bottom: 1px solid #F7F7FD !important;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: 100vh;
+  background: #062637;
+  display: flex;
+}
+
+body, input, input:hover, input:focus, button {
+  color: white;
+}
+
+#root {
+  width: 100%;
+  height: 100vh;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  line-height: 7px;
+}
+
+.wrapper_err500, .wrapper_err404 {
+  font-family: "Inter", serif;
+  font-style: normal;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+  justify-content: center;
+  width: 500px;
+  height: 58px;
+}
+
+.wrapper_err500 p, .wrapper_err404 p {
+  font-weight: 800 !important;
+  font-size: 24px;
+}
+
+.wrapper_err500 a, .wrapper_err404 a {
+  margin-top: 15%;
+  text-decoration-line: underline;
+  font-family: "Inter", serif;
+  font-style: normal;
+  font-weight: 800 !important;
+  font-size: 16px;
+  line-height: 19px;
+  color: #6C6AB9;
+}
+
+.wrapper_err500 h1, .wrapper_err404 h1 {
+  font-size: 96px;
+}
+
+.button {
+  background: #066761;
+  width: 385px;
+  height: 52px;
+  font-size: 42px;
+  line-height: 39px;
+}
+
+label, .mainField {
+  float: left;
+}
+
+label, button, .wrapper_err404 a, .wrapper_err500 a {
+  font-family: "Inter", serif;
+  font-style: normal;
+  font-weight: 700;
+}
+
+.label-signup {
+  padding-right: 10px;
+}
+
+a {
+  text-decoration-line: none;
+}
+
+.welcome-wrap h1 {
+  margin-bottom: 25%;
+}
+
+.signin-form, .pass-form input {
+  margin-bottom: 10%;
+  font-family: "Bitter", serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 24px;
+}
+
+.signin-wrapper h1 {
+  font-size: 96px !important;
+  margin-bottom: 20%;
+}
+
+#link_to_register {
+  margin-top: 2% !important;
+  text-decoration-line: underline !important;
+}
+
+.signin-pass-msg {
+  width: 100%;
+}
+
+.signin-wrapper a {
+  margin-top: 5%;
+  color: #6C6AB9;
+}
+
+.input-signin::placeholder {
+  color: rgba(247, 247, 253, 0.54);
+}
+
+.input-signin-pass, .input-signin-pass:focus, .input-signin-pass:hover {
+  width: 100%;
+}
+
+.main-page {
+  width: 550px;
+  line-height: 50px;
+}
+
+.signup-wrapper {
+  width: 100%;
+  line-height: 46px;
+}
+
+.field {
+  clear: both;
+  text-align: right;
+  line-height: 57px;
+  width: 100%;
+}
+
+.input-signup, .input-signup:hover, .input-signup:focus {
+  width: 60%;
+  margin-top: 15px;
+}
+
+.mainField {
+  width: 100%;
+  margin-bottom: 10%;
+}
+
+.signup-form {
+  width: 45%;
+  margin: 10% 0 10% 0;
+}
+
+.signup-form a, .signup-form button {
+  width: 100% !important;
+  height: 15% !important;
+}
+
+/*# sourceMappingURL=style.css.map */
