@@ -21,6 +21,10 @@ $no-outline-none: none;
 $zero-outline-offset: 0;
 $p-0: 0;
 $m-0: 0;
+$color-purple: #6C6AB9;
+$dark-green: #066761;
+$color-white: white;
+$color-gray: #F7F7FD89;
 
 body,
 #root,
@@ -57,7 +61,7 @@ input, input:hover, input:focus, input:active {
   outline: $no-outline-none;
   outline-offset: $zero-outline-offset;
   background: $no-background;
-  border-bottom: 1px solid #F7F7FD !important;
+  border-bottom: 1px solid $color-white !important;
 }
 body {
   padding: $p-0;
@@ -68,7 +72,7 @@ body {
   display: $display-flex;
 }
 body, input, input:hover, input:focus, button{
-  color: white;
+  color: $color-white;
 }
 #root {
   width: 100%;
@@ -104,13 +108,13 @@ body, input, input:hover, input:focus, button{
   font-weight: $font-weight-800 !important;
   font-size: 16px;
   line-height: 19px;
-  color: #6C6AB9;
+  color: $color-purple;
 }
 .wrapper_err500 h1, .wrapper_err404 h1 {
   font-size: 96px;
 }
 .button {
-  background: #066761;
+  background: $dark-green;
   width: 385px;
   height: 52px;
   font-size: 42px;
@@ -154,10 +158,10 @@ a {
 }
 .signin-wrapper a {
   margin-top: 5%;
-  color: #6C6AB9;
+  color: $color-purple;
 }
 .input-signin::placeholder {
-  color: rgba(247, 247, 253, 0.54);
+  color: $color-gray;
 }
 .input-signin-pass, .input-signin-pass:focus, .input-signin-pass:hover {
   width: 100%;
@@ -191,6 +195,38 @@ a {
 .signup-form a, .signup-form button {
   width: 100% !important;
   height: 15% !important;
+}
+
+.editProfile-wrapper {
+  width: 100%;
+  height: 100vh;
+}
+.editProfile-window {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 45%;
+}
+.editProfile-form-main, .editProfile-form-slave {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  line-height: 49px;
+}
+.input-editProfile {
+  width: 90%;
+  border-radius: 25px;
+  border: 1px solid white !important;
+  height: 37px;
+}
+.descriptions {
+  color: #13ABA2;
+  font-size: 12px;
+}
+#editProfile-title {
+  margin-left: 25px;
 }
 
 

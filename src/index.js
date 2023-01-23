@@ -10,10 +10,9 @@ import signinComponent from './pages/signin/signin.js';
 import signinPassComponent from './pages/signin/signin-pass.js';
 import signupComponent from './pages/signup/signup.js';
 import mainComponent from './pages/main/main.js';
+import editProfileComponent from './pages/profile/profile.js';
 
 const root = document.getElementById('root');
-
-
 
 /*window.createButton = (id, value) => {
 
@@ -39,6 +38,8 @@ switch (path){
 		return root.innerHTML = signupComponent(root);
 	case '/main':
 		return root.innerHTML = mainComponent(root);
+	case '/edit-profile':
+		return root.innerHTML = editProfileComponent(root);
 
 }
 
