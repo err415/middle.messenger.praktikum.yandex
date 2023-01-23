@@ -1,8 +1,12 @@
 $bg-main: #062637;
+$no-background: none;
 $color-500: white;
-$font-family-inter: 'Inter';
+$font-family-inter: 'Inter', serif;
+$font-family-bitter: 'Bitter', serif;
 $font-style-normal: normal;
 $font-weight-800: 800;
+$font-weight-700: 700;
+$font-weight-400: 400;
 $font-size-24: 24px;
 $line-height-7: 7px;
 $display-flex: flex;
@@ -10,82 +14,186 @@ $align-items-center: center;
 $text-align-center: center;
 $flex-direction-column: column;
 $justify-content-center: center;
+$text-decoration-line-none: none;
+$float-left: left;
+$no-border: none;
+$no-outline-none: none;
+$zero-outline-offset: 0;
+$p-0: 0;
+$m-0: 0;
 
+body,
+#root,
+.wrapper_err500,
+.wrapper_err404,
+.button,
+.welcome-wrap,
+.signin-form,
+.pass-form,
+.signin-wrapper,
+.signup-wrapper,
+.signin-pass-msg {
+  display: $display-flex;
+}
+.signup-wrapper,
+.button,
+.welcome-wrap,
+.signin-wrapper,
+.signup-wrapper {
+  align-items: $align-items-center;
+  text-align: $text-align-center;
+  justify-content: $justify-content-center;
+}
+.signup-wrapper,
+.signin-wrapper,
+.welcome-wrap,
+.signin-form,
+.pass-form {
+  flex-direction: $flex-direction-column;
+}
+
+input, input:hover, input:focus, input:active {
+  border: $no-border;
+  outline: $no-outline-none;
+  outline-offset: $zero-outline-offset;
+  background: $no-background;
+  border-bottom: 1px solid #F7F7FD !important;
+}
 body {
-  padding: 0;
-  margin: 0;
+  padding: $p-0;
+  margin: $m-0;
   width: 100%;
   height: 100vh;
   background: $bg-main;
   display: $display-flex;
 }
-#root{
+body, input, input:hover, input:focus, button{
+  color: white;
+}
+#root {
   width: 100%;
   height: 100vh;
   padding: 0;
   margin: 0;
-  display: flex;
   text-align: $text-align-center;
   flex-direction: $flex-direction-column;
   justify-content: $justify-content-center;
   align-items: $align-items-center;
   line-height: $line-height-7;
-
 }
-.wrapper_500,.wrapper_404
-    {
-      color: $color-500;
-      font-family: $font-family-inter;
-      font-style: $font-style-normal;
+.wrapper_err500, .wrapper_err404 {
 
-
-      display: $display-flex;
-      align-items: $align-items-center;
-      text-align: $text-align-center;
-      flex-direction: $flex-direction-column;
-      justify-content: $justify-content-center;
-      width: 500px;
-      height: 58px;
-
-
-    }
-.wrapper_500,.wrapper_404 p {
-  font-weight: $font-weight-800;
+  font-family: $font-family-inter;
+  font-style: $font-style-normal;
+  align-items: $align-items-center;
+  text-align: $text-align-center;
+  flex-direction: $flex-direction-column;
+  justify-content: $justify-content-center;
+  width: 500px;
+  height: 58px;
+}
+.wrapper_err500 p, .wrapper_err404 p {
+  font-weight: $font-weight-800 !important;
   font-size: $font-size-24;
 }
-.wrapper_500,.wrapper_404 a {
-    margin-top: 15%;
+.wrapper_err500 a, .wrapper_err404 a {
+  margin-top: 15%;
   text-decoration-line: underline;
   font-family: $font-family-inter;
-  font-style: normal;
-  font-weight: 800;
+  font-style: $font-style-normal;
+  font-weight: $font-weight-800 !important;
   font-size: 16px;
   line-height: 19px;
   color: #6C6AB9;
 }
-.wrapper_500,.wrapper_404 h1 {
+.wrapper_err500 h1, .wrapper_err404 h1 {
   font-size: 96px;
 }
 .button {
   background: #066761;
   width: 385px;
   height: 52px;
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 700;
   font-size: 42px;
   line-height: 39px;
-  color: white;
-  display: flex;
-  align-items: center;
-  text-align: center;
-  justify-content: center;
 }
-.welcome-wrap a {
-  text-decoration-line: none;
+label, .mainField {
+  float: $float-left;
+}
+label, button, .wrapper_err404 a, .wrapper_err500 a {
+  font-family: $font-family-inter;
+  font-style: $font-style-normal;
+  font-weight: 700;
+}
+.label-signup {
+  padding-right: 10px;
+}
+a {
+  text-decoration-line: $text-decoration-line-none;
 }
 .welcome-wrap h1 {
-  color: white;
   margin-bottom: 25%;
 }
+.signin-form, .pass-form input {
+  margin-bottom: 10%;
+  font-family: $font-family-bitter;
+  font-style: $font-style-normal;
+  font-weight: $font-weight-400;
+  font-size: 20px;
+  line-height: 24px;
+}
+.signin-wrapper h1 {
+  font-size: 96px !important;
+  margin-bottom: 20%;
+}
+#link_to_register {
+  margin-top: 2% !important;
+  text-decoration-line: underline !important;
+}
+.signin-pass-msg {
+  width: 100%;
+}
+.signin-wrapper a {
+  margin-top: 5%;
+  color: #6C6AB9;
+}
+.input-signin::placeholder {
+  color: rgba(247, 247, 253, 0.54);
+}
+.input-signin-pass, .input-signin-pass:focus, .input-signin-pass:hover {
+  width: 100%;
+}
+.main-page {
+  width: 550px;
+  line-height: 50px;
+}
+.signup-wrapper {
+  width: 100%;
+  line-height: 46px;
+}
+.field {
+  clear: both;
+  text-align: right;
+  line-height: 57px;
+  width: 100%;
+}
+.input-signup, .input-signup:hover, .input-signup:focus {
+  width: 60%;
+  margin-top: 15px;
+}
+.mainField {
+  width: 100%;
+  margin-bottom: 10%;
+}
+.signup-form {
+  width: 45%;
+  margin: 10% 0 10% 0;
+}
+.signup-form a, .signup-form button {
+  width: 100% !important;
+  height: 15% !important;
+}
+
+
+
+
 
