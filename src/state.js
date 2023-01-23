@@ -26,13 +26,13 @@ export const state = {
     profile: {
         edit: {
             title: 'Изменить профиль',
+            login: 'Mark',
             mainFormLabel: 'Имя (обязательно)',
             slaveFormLabel: 'Имя пользователя',
-            buttonPasswordChange: '',
-            mainFormLastNamePlaceholderOne: 'Фамилия (необязательно)',
-            mainFormLastNamePlaceholderTwo: 'О себе',
-            descriptonFormMain: 'Любые подробности, например: возраст, род занятий  или город.\n' +
-                'Пример: 20 лет, сам себе программист из МСК.',
+            buttonPasswordChange: 'Сменить пароль',
+            mainFormLastNamePlaceholderOne: '"Фамилия (необязательно)"',
+            mainFormLastNamePlaceholderTwo: '"О себе"',
+            descriptonFormMain: 'Любые подробности, например: возраст, род занятий или город. \n Пример: 20 лет, сам себе программист из МСК.',
             discriptionFormSlaveOne: 'Вы можете выбрать публичное имя пользователя в Spectre. В\n' +
                 'этом случае - другие люди смогут найти вас по такому имени и\n' +
                 'связаться, не зная вашего телефона.',

@@ -25,6 +25,15 @@ $color-purple: #6C6AB9;
 $dark-green: #066761;
 $color-white: white;
 $color-gray: #F7F7FD89;
+$color-light-gray: rgba(255, 255, 255, 0.2);
+$color-darkblue: rgba(6, 38, 55, 1);
+$color-darkred: darkred;
+$color-gray-trans-40: rgba(217, 217, 217, 0.4);
+$color-gray-trans-4:  rgba(217, 217, 217, 0.04);
+$color-darkgray-trans-20: rgba(159, 157, 157, 0.8);
+$color-turquoise: #13ABA2;
+$color-darkgreen-trans-30: rgba(14, 225, 200, 0.07);
+$bg-image-editprofile-url: url("/src/assets/img/avatar-cam.png");
 
 body,
 #root,
@@ -36,14 +45,25 @@ body,
 .pass-form,
 .signin-wrapper,
 .signup-wrapper,
-.signin-pass-msg {
+.signin-pass-msg,
+.editProfile-btn-passwordChange,
+.editProfile-avaBlock,
+.editProfile-labelBlock,
+.editProfile-titleBlock,
+.editProfile-window,
+.editProfile-form-main,
+.editProfile-form-slave {
   display: $display-flex;
 }
 .signup-wrapper,
 .button,
 .welcome-wrap,
 .signin-wrapper,
-.signup-wrapper {
+.signup-wrapper,
+.editProfile-btn-passwordChange,
+.editProfile-avaBlock,
+.editProfile-form-main,
+.editProfile-form-slave {
   align-items: $align-items-center;
   text-align: $text-align-center;
   justify-content: $justify-content-center;
@@ -52,7 +72,10 @@ body,
 .signin-wrapper,
 .welcome-wrap,
 .signin-form,
-.pass-form {
+.pass-form,
+.editProfile-window,
+.editProfile-form-main,
+.editProfile-form-slave {
   flex-direction: $flex-direction-column;
 }
 
@@ -199,35 +222,157 @@ a {
 
 .editProfile-wrapper {
   width: 100%;
-  height: 100vh;
+  height: 100%;
+  background: $color-darkgreen-trans-30;
 }
 .editProfile-window {
-  display: flex;
   align-items: flex-start;
-  flex-direction: column;
   justify-content: flex-start;
-  width: 45%;
+  width: 35%;
+  height: 100%;
+
 }
-.editProfile-form-main, .editProfile-form-slave {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  line-height: 49px;
+.editProfile-blockMain, .editProfile-blockSlave {
+  background: $color-darkblue ;
+  width: 100%;
+}
+.editProfile-blockSlave {
+  margin-top: 3%;
+}
+.editProfile-form-main {
+  margin-top: 12%;
+}
+.avaBlock-btn-upload-img {
+  cursor: pointer;
+  margin: 1% 0 0 6% !important;
+  display: block;
+  position: fixed !important;
+  width: 32px;
+  height: 32px;
+  background-image: $bg-image-editprofile-url;
+}
+.editProfile-form-slave {
+  margin-top: 5%;
+  margin-bottom: 10%;
+
 }
 .input-editProfile {
   width: 90%;
   border-radius: 25px;
-  border: 1px solid white !important;
+  border-bottom: none !important;
   height: 37px;
+  margin-bottom: 5%;
+  background: rgba(217, 217, 217, 0.04);
+  padding-left: 7%;
+  font-size: 16px;
+  font-family: "Tomorrow";
 }
+.input-editProfile::placeholder {
+  font-size: 14px;
+}
+
 .descriptions {
-  color: #13ABA2;
+  color: $color-turquoise;
+  font-size: 14px;
+  line-height: 17px;
+  width: 80%;
+  text-align: left;
+}
+.editProfile-description {
+  width: 100%;
+  margin-left: 15%;
+}
+.editProfile-labelBlock {
+  width: 90%;
+  margin-left: 15%;
+}
+.label-editProfile {
   font-size: 12px;
+  color: $color-darkgray-trans-20 !important;
+}
+.editProfile-titleBlock{
+  width: 100%;
+  flex-direction: row;
+
+}
+.editProfile-backAarrow {
+  margin: 2% 0 0 5%;
 }
 #editProfile-title {
-  margin-left: 25px;
+  margin-left: 7%;
+  font-size: 30px;
 }
+.editProfile-login {
+  margin-top: 5%;
+}
+.editProfile-avaBlock {
+  margin-top: 7%;
+  height: 15%;
+  width: 100%;
+  flex-direction: column;
+}
+.editProfile-avatar {
+  display: block;
+  width: 128px !important;
+  height: 111px !important;
+  background: $color-gray-trans-40 !important;
+  border-radius: 50% !important;
+}
+.editProfile-avatar::before {
+  content: "";
+  display: inline-block;
+  vertical-align: middle;
+  padding-top: 100%;
+}
+[class*="icono"] {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  color: $color-light-gray;
+  box-sizing: border-box;
+  &:after, &:before {
+    content: "";
+    box-sizing: border-box;
+  }
+}
+[class*="icono-arrow1"] {
+  width: 20px;
+  height: 20px;
+  border-width: 4px 4px 0 0;
+  border-style: solid;
+  margin: 10px;
+
+  &:before {
+    right: 0;
+    top: -3px;
+    position: absolute;
+    height: 4px;
+    box-shadow: inset 0 0 0 32px;
+    transform: rotate(-45deg);
+    width: 23px;
+    transform-origin: right top;
+  }
+  &[class*="-right"] {
+    transform: rotate(-135deg);
+  }
+}
+.editProfile-changePwd-btn {
+  color: $color-darkred;
+  text-decoration: underline;
+  font-size: 20px;
+}
+.editProfile-btn-passwordChange {
+  margin-top: 3%;
+  height: 100%;
+  width: 100%;
+background: $color-darkblue;
+}
+#editProfile-formSlave-input::placeholder {
+  color: $color-white !important;
+  font-size: 16px;
+
+}
+
 
 
 

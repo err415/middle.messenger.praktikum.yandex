@@ -1,7 +1,7 @@
 <div class="signup-wrapper">
 
     <h1>{{{state.signup.title}}}</h1>
-    <div class="signup-form">
+    <form class="signup-form" action="/signin">
         <div class="mainField">
             <div class="field">
                 <label class="label-signup" for="first_name">Введите ваше Имя:</label>
@@ -33,6 +33,6 @@
             </div>
         </div>
         <a href="/signin">{{{state.signup.signupButton}}}</a>
-    </div>
+    </form>
 
 </div>
