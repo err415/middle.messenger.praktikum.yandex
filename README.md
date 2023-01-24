@@ -9,7 +9,7 @@ Description: Spectre - Web chat messenger.
 | `npm run start` | Starts local server at 3000 port |
 | `npm run build` | Makes a build |
 
-|SITE MAP|
+     #SITE MAP#
 | Route | Description  |
 | --- | --- |
 |  /  | главная/приветствия страница |
