@@ -17,28 +17,35 @@
 
             <form class="editProfile-form-main">
                 <div class="editProfile-labelBlock">
-                    <label class="label-editProfile" for="first_name">{{{state.profile.edit.mainFormLabel}}}</label>
+                    <label class="label-editProfile" for="first_name">{{{state.profile.edit.mainForm.label.first_name}}}</label>
                 </div>
-                <input name="first_name" class="input-editProfile" type="text">
+                <input name="first_name" class="input-editProfile" type="text"
+                       placeholder="{{{state.profile.edit.mainForm.data.first_name}}}">
                 <input name="last_name" class="input-editProfile" type="text"
-                       placeholder={{{state.profile.edit.mainFormLastNamePlaceholderOne}}}>
+                       placeholder={{{state.profile.edit.mainForm.data.last_name}}}>
                 <input name="about_myself" class="input-editProfile" type="text"
-                       placeholder={{{state.profile.edit.mainFormLastNamePlaceholderTwo}}}>
+                       placeholder={{{state.profile.edit.mainForm.data.about_myself}}}>
+                <input name="e-mail" class="input-editProfile" type="text"
+                       placeholder={{{state.profile.edit.mainForm.data.email}}}>
+                <input name="phone" class="input-editProfile" type="text"
+                       placeholder={{{state.profile.edit.mainForm.data.phone}}}>
+                <input name="nickname" class="input-editProfile" type="text"
+                       placeholder={{{state.profile.edit.mainForm.data.nickname}}}>
                 <div class="editProfile-description">
-                    <p class="descriptions">{{{state.profile.edit.descriptonFormMain}}}</p>
+                    <p class="descriptions">{{{state.profile.edit.mainForm.description.d1}}}</p>
                 </div>
             </form>
         </div>
         <div class="editProfile-blockSlave">
             <form class="editProfile-form-slave">
                 <div class="editProfile-labelBlock">
-                    <label class="label-editProfile" for="login">{{{state.profile.edit.slaveFormLabel}}}</label>
+                    <label class="label-editProfile" for="login">{{{state.profile.edit.slaveForm.label.login}}}</label>
                 </div>
                 <input id="editProfile-formSlave-input" name="login" class="input-editProfile" type="text"
                        placeholder="{{{state.profile.edit.login}}}">
                 <div class="editProfile-description">
-                    <p class="descriptions">{{{state.profile.edit.discriptionFormSlaveOne}}}</p>
-                    <p class="descriptions">{{{state.profile.edit.discriptionFormSlaveTwo}}}</p>
+                    <p class="descriptions">{{{state.profile.edit.slaveForm.description.d1}}}</p>
+                    <p class="descriptions">{{{state.profile.edit.slaveForm.description.d2}}}</p>
                 </div>
             </form>
         </div>
@@ -46,7 +53,7 @@
 
             <a>
                 <span class="editProfile-changePwd-btn">
-                    {{{state.profile.edit.buttonPasswordChange}}}
+                    {{{state.profile.edit.button.pwdChange}}}
                 </span>
             </a>
 
