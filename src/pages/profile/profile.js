@@ -1,6 +1,6 @@
 import Handlebars from 'handlebars';
 //import Handlebars from 'handlebars/dist/handlebars.runtime';
-import tpl from './signin.hbs';
+import tpl from './profile.hbs';
 import {state} from "../../state";
 import button from '../../components/button'
 //import button from '../../components/button';

@@ -9,6 +9,15 @@ Description: Spectre - Web chat messenger.
 | `npm run start` | Starts local server at 3000 port |
 | `npm run build` | Makes a build |
 
+     #SITE MAP#
+| Route | Description  |
+| --- | --- |
+|  /  | главная/приветствия страница |
+|  /signin  | Страница авторизации |
+|  /signin-pass  | Страница ввода пароля |
+|  /signup  | Страница регистрации |
+|  /main  | Страница с чатами (пока заглушка) |
+|  /edit-profile  | Редактирование профиля |
 
 [Deployed example (Netlify)](https://sprint-1--rococo-palmier-5ca163.netlify.app)
  • 
