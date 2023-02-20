@@ -1,4 +1,4 @@
-import button from "./components/button";
+import button from "./components/button/button";
 
 export const state = {
     welcome: {
