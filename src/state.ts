@@ -1,22 +1,22 @@
 import button from "./components/button/button";
 
-export const state = {
+export default  {
     welcome: {
         welcomeTitle: 'Добро пожаловать в Spectre',
+        welcomeButton: button('welcome-btn', 'Войти', 'button'),
     },
     h1: 'Title',
     content: 'Содержимое',
     fname: 'students',
-    welcomeButton: button('welcome-btn', 'Войти'),
 
     signin: {
         title: 'Авторизация',
-        signinButton: button('welcome-btn', 'ДАЛЕЕ'),
-        signinPassButton: button('welcome-btn', 'ВХОД'),
+        signinButton: button('welcome-btn', 'ДАЛЕЕ', ''),
+        signinPassButton: button('welcome-btn', 'ВХОД', ''),
     },
     signup: {
         title: 'Регистрация',
-        signupButton: button('welcome-btn', 'Зарегистрироваться'),
+        signupButton: button('welcome-btn', 'Зарегистрироваться', ''),
 
     },
     main: {
