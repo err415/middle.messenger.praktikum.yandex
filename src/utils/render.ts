@@ -1,5 +1,5 @@
 function render(query: string, component: any) {
-    const root = document.querySelector(query);
+    const root : HTMLElement | null = document.querySelector(query);
     root!.appendChild(component.getContent());
     component.dispatchComponentDidMount();
     return root;

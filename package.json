@@ -6,14 +6,19 @@
   "scripts": {
     "start": "parcel static/index.html -p 3000 --no-source-maps --no-cache --dist-dir ./build",
     "build": "parcel build static/index.html  --no-source-maps --no-cache --dist-dir ./build",
-    "watch": "parcel watch"
+    "watch": "parcel watch",
+    "check": "tsc --noEmit"
   },
-  "author": "",
+  "author": "err415",
   "license": "ISC",
   "devDependencies": {
-    "@anikin/parcel-transformer-handlebars-precompile": "^1.0.1",
-    "parcel": "^2.8.2",
-    "sass": "^1.57.1"
+    "@parcel/transformer-inline-string": "^2.8.3",
+    "@parcel/validator-typescript": "^2.8.3",
+    "@types/uuid": "^9.0.0",
+    "parcel": "^2.8.3",
+    "parcel-transformer-hbs": "^1.0.4",
+    "sass": "^1.57.1",
+    "uuid": "^9.0.0"
   },
   "targets": {
     "default": {
@@ -27,7 +32,6 @@
     "node": ">=12"
   },
   "dependencies": {
-    "@parcel/plugin": "^2.8.3",
     "express": "^4.18.2",
     "handlebars": "^4.7.7",
     "typescript": "^4.9.5"

@@ -1,11 +1,14 @@
 //import Handlebars from 'handlebars';
 //import Handlebars from 'handlebars/dist/handlebars.runtime';
 import template from './button.hbs';
-import Component from "../../utils/Component";
+import Component from "../../services/Component";
 
 interface ButtonProps {
 	//id: string;
 	value: string;
+	events: {
+		click: () => void;
+	};
 }
 export class Button extends Component {
 	constructor(props: ButtonProps) {
@@ -13,7 +16,7 @@ export class Button extends Component {
 	}
 
 	protected render() {
-		return template({value: this.props.value});
+		return this.compile(template, { value: this.props.value });
 	}
 }
 

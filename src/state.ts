@@ -1,3 +1,4 @@
+/*
 import button from "./components/button/button";
 
 export default  {
@@ -65,3 +66,4 @@ export default  {
         }
     }
 }
+*/

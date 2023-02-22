@@ -1,24 +1,24 @@
 //import Handlebars from 'handlebars';
 //import Handlebars from 'handlebars/dist/handlebars.runtime';
 import template from './welcome.hbs';
-import Component from "../../utils/Component";
+import Component from "../../services/Component";
 import { Button } from "../../components/button/button";
 //import {template} from "handlebars";
 //import {state} from "../../state";
 //import button from '../../components/button'
 //import button from '../../components/button';
-
+interface WelcomePageProps {
+    button: Button;
+}
 //import button from './components/button';
 export class WelcomePage extends Component {
-    constructor() {
-        super('div');
+    constructor(props: WelcomePageProps) {
+        super('div', props);
     }
 
     protected render() {
-        const button = new Button({
-            value: 'TESTTEST',
-        });
-        return template({button: button.getContent()?.outerHTML});
+
+        return this.compile(template, { button: this.props.button });
     }
 }
 

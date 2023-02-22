@@ -1,38 +1,39 @@
 import { v4 as makeUUID } from 'uuid';
 import Handlebars from 'handlebars';
-import EventBus from './EventBus';
+import { EventBus } from './EventBus';
 
-export default class Component<typeProps extends Record<string, {
-    withInternalID: any;
-}> = {}> {
+export default class Component<TypeProps extends Record<string, any> = any> {
     static EVENTS = {
         INIT: 'init',
         FLOW_CDM: 'flow:component-did-mount',
         FLOW_CDU: 'flow:component-did-update',
         FLOW_RENDER: 'flow:render',
     } as const;
-    protected props: typeProps;
-    protected children:  typeProps | Record<string, Function>[];
-    private id: string;
+    protected props: TypeProps;
+    protected children:  Record<string, any>;
+    private id = makeUUID();
     private meta: {
         tagName: string;
-        props: typeProps;
+        props: any;
     };
     protected element: HTMLElement | null = null;
     private eventBus: () => EventBus;
     private setUpdate: boolean | undefined = false;
 
 
-    constructor(tagName: string = 'div', propsWithChild: typeProps) {
+    constructor(tagName: string = 'div', propsWithChild: any = {}) {
 
         const eventBus = new EventBus();
 
         const {props, children} = this.getChildren(propsWithChild);
-        this.id = makeUUID();
+        //this.id = makeUUID();
         //this._children = children;
-        this.children = this.makePropsProxy(children as any);
+        this.children = this.makePropsProxy(children);
         this.props = this.makePropsProxy({...props, id: this.id});
-        this.meta = {tagName, props};
+        this.meta = {
+            tagName,
+            props
+        };
         //this.meta = {tag, props};
         this.eventBus = () => eventBus;
         this.registerEvents(eventBus);
@@ -56,10 +57,9 @@ export default class Component<typeProps extends Record<string, {
         this._element = this.createDocumentElement(tagName);
     }*/
     private createDocumentElement(tagName: string) {
-
         const element = document.createElement(tagName);
 
-        if (this.props.settings.withInternalID)
+        if (this.props.settings?.withInternalID)
             element.setAttribute('data-id', this.id);
 
         return element;
@@ -75,11 +75,11 @@ export default class Component<typeProps extends Record<string, {
     }
 
     protected render(): DocumentFragment {
-        return new DocumentFragment();
+       return new DocumentFragment();
     }
 
     protected addEvents() {
-        const {events = {}} = this.props as typeProps & { events: Record<string, () => {}> };
+        const {events = {}} = this.props as TypeProps & { events: Record<string, () => {}> };
 
         Object.keys(events).forEach((eventName) => {
             this.element?.addEventListener(eventName, events[eventName]);
@@ -87,7 +87,7 @@ export default class Component<typeProps extends Record<string, {
     }
 
     protected removeEvents() {
-        const {events = {}} = this.props as typeProps & { events: Record<string, () => {}> };
+        const {events = {}} = this.props as TypeProps & { events: Record<string, () => {}> };
 
         Object.keys(events).forEach((eventName) => {
             this.element?.removeEventListener(eventName, events[eventName]);
@@ -95,17 +95,17 @@ export default class Component<typeProps extends Record<string, {
     }
 
     protected addAttribute() {
-        const {attr = {}} = this.props as typeProps & { attr: Record<string, string> };
+        const {attr = {}} = this.props as TypeProps & { attr: Record<string, string> };
 
         Object.entries(attr).forEach(([key, value]) => {
             this.element?.setAttribute(key, value);
         });
     }
 
-    private getChildren(propsWithChild: typeProps): { children: Record<string, Component<{}> |  {}>; props: typeProps } {
+    private getChildren(propsWithChild: TypeProps) {
 
-        const children: { [x: string]: {}; }  = {};
-        const props: Record<string, unknown> = {};
+        const children: Record<string, Component>  = {};
+        const props: Record<string, any> = {};
 
         Object.keys(propsWithChild).forEach(key => {
             if (propsWithChild[key] instanceof Component)
@@ -113,18 +113,18 @@ export default class Component<typeProps extends Record<string, {
             else
                 props[key] = propsWithChild[key];
         });
-        return {props: props as typeProps, children};
+        return { props, children };
     }
 
-    protected compile(template: (props: any) => string, props: any) {
+    protected compile(template: string, props?: any) {
 
         if (typeof (props) == 'undefined')
             props = this.props;
 
-        const propsWithStubs = {...props};
-
+        const propsWithStubs = { ...props };
         Object.entries(this.children).forEach(([key, child]) => {
             propsWithStubs[key] = `<div data-id="${child.id}"></div>`;
+
         });
 
         const fragment = this.createDocumentElement('template') as HTMLTemplateElement;
@@ -140,13 +140,12 @@ export default class Component<typeProps extends Record<string, {
     }
 
     private _componentDidMount() {
-        this.componentDidMount();
-        Object.values(this.children).forEach(child => {
-            child.dispatchComponentDidMount();
-        });
+        if (this.componentDidMount())
+        Object.values(this.children).forEach(child => { child.dispatchComponentDidMount() });
     }
 
     protected componentDidMount() {
+        return true;
     }
 
     protected dispatchComponentDidMount() {
@@ -155,14 +154,17 @@ export default class Component<typeProps extends Record<string, {
             this.eventBus().emit(Component.EVENTS.FLOW_RENDER);
     }
 
-    private _componentDidUpdate(oldProps: typeProps, newProps: typeProps) {
+    private _componentDidUpdate(oldProps: TypeProps, newProps: TypeProps) {
         const response = this.componentDidUpdate(oldProps, newProps);
         if (response)
             this.eventBus().emit(Component.EVENTS.FLOW_RENDER);
+
     }
 
-    protected componentDidUpdate(oldProps: typeProps, newProps: typeProps) {
+    protected componentDidUpdate(oldProps: TypeProps, newProps: TypeProps) {
+        console.log(oldProps, newProps);
         return oldProps !== newProps;
+
     }
 
     /*setProps(newProps) {
@@ -180,9 +182,9 @@ export default class Component<typeProps extends Record<string, {
         return this.element;
     }
 
-    public setProps(nextProps: typeProps) {
+    public setProps(nextProps: TypeProps) {
 
-        const prevValue = {...this.props};
+        const prevValue: TypeProps = { ...this.props };
         const {children, props} = this.getChildren(nextProps);
         this.setUpdate = false;
 
@@ -216,19 +218,20 @@ export default class Component<typeProps extends Record<string, {
             },
         });
     }*/
-    private makePropsProxy(props: typeProps) {
+    private makePropsProxy(props: any) {
 
         return new Proxy(props, {
 
-            get(target, prop: string) {
+            get(target, prop: string | symbol) {
                 const value: {} = target[prop];
                 return typeof value === 'function' ? value.bind(target) : value;
             },
 
-            set: (target, prop: string, newValue) => {
+            set: (target, prop: string | symbol, value) => {
 
-                if (target[prop] !== newValue) {
-                    target[prop as keyof typeProps] = newValue;
+                if (target[prop] !== value)
+                {
+                    target[prop as keyof TypeProps] = value;
                     this.setUpdate = true;
                 }
 

@@ -1,36 +1,37 @@
 
-class EventBus  {
-    readonly _events: Record<string, Function[]>;
+export class EventBus  {
+    private readonly events: Record<string, Function[]> = {};
 
     constructor() {
-        this._events = {};
+        this.events = {};
     }
 
-    attach(event: string, callback: () => void):void {
-        if (!this._events[event])
-            this._events[event] = [];
+    attach(event: string, callback: () => void): void {
+        if (!this.events[event])
+            this.events[event] = [];
 
-        this._events[event].push(callback);
+        this.events[event].push(callback);
     }
 
     emit(event: string, ...args: unknown[]):void {
-        if (!this._events[event])
+        if (!this.events[event])
             return;
 
-        this._events[event].forEach(listener => { listener(...args) });
+        this.events[event].forEach(listener => { listener( ...args ) });
 
     }
 
     detach(event: string, callback: () => void):void {
-        if (!this._events[event])
+        if (!this.events[event])
             return;
 
-        this._events[event] = this._events[event].filter((item => item !== callback));
+        this.events[event] = this.events[event].filter((item => item !== callback));
     }
     _checkEvent(event:string) {
-        if (!this._events[event]){
+        if (!this.events[event]){
             throw new Error(`нет события': ${event}`);
         }
     }
 }
-export default EventBus;
+
+
