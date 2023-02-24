@@ -2,7 +2,7 @@ export {};
 
 declare global {
     interface Window {
-        page: {};
+        page: {} | any;
         content: {};
         changePageContent: () => void;
     }

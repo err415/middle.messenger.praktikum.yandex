@@ -1,38 +1,15 @@
-//import Handlebars from "handlebars";
-//import {state} from './state.js';
+import renderDOM from "./utils/render";
 import './style.css';
-//import button from './components/button';
-//import { WelcomePage } from './pages/welcome/welcome';
-//import {Button} from "./components/button/button";
-// import err500Component from './pages/500/500.js';
-// import err404Component from './pages/404/404.js';
-// import signinComponent from './pages/signin/signin.js';
-// import signinPassComponent from './pages/signin/signin-pass.js';
-// import signupComponent from './pages/signup/signup.js';
-// import mainComponent from './pages/main/main.js';
-// import editProfileComponent from './pages/profile/profile.js';
+import MainPage from "./pages/mainPage/main";
+import ProfilePage from "./pages/profilePage/profile";
+import SigninConfirmPage from "./pages/signinPage/ComfirmPage/signin-pass";
+import SigninPage from "./pages/signinPage/signin";
+import SignupPage from "./pages/signupPage/signup";
+import WelcomePage from "./pages/WelcomePage/welcome";
+import Error404Page from "./pages/404Page/404";
+import Error500Page from "./pages/500Page/500";
 
-/*window.addEventListener('DOMContentLoaded', () => {
-    const root = document.querySelector('#root');
-
-    const button = new Button({
-        value: 'TESTTEST',
-        events: {
-            click: () => console.log('Click Welcome Page'),
-        }
-    });
-
-    const welcomePage = new WelcomePage({ button });
-
-    root!.append(welcomePage.getContent()!);
-})*/
-import renderDOM from './utils/render';
-import IndexLayout from './layout/main/index';
-import Nav from './components/nav/nav';
-import Page from './pages/IndexPage/index';
-
-
-const nav = new Nav(
+/*const nav = new Nav(
     'ul',
     {
         items: [
@@ -44,7 +21,7 @@ const nav = new Nav(
                 console.log('Nav link clicked');
                 e.preventDefault();
                 e.stopPropagation();
-                /*if(e.target && e.target.getAttribute('href'))
+                /!*if(e.target && e.target.getAttribute('href'))
                 {
                     console.log('Nav link clicked');
                     e.preventDefault();
@@ -52,41 +29,55 @@ const nav = new Nav(
                 }
                 else {
                     console.log('No link clicked')
-                }*/
+                }*!/
             }
         },
     }
-);
+);*/
 
-const content = new Page(
-    'div',
-    {
-        text: 'Some text...'
-    }
-);
-const page = new IndexLayout(
-    'div',
-    {
-        nav: nav,
-        title: 'Title',
-        content: content,
-        attr: {
-            class: 'page',
-        }
-    }
-);
+switch (window.location.pathname) {
+    case '/':
+        renderDOM('.root', new WelcomePage());
+        break;
+    case '/404':
+        renderDOM('.root', new Error404Page());
+        break;
+    case '/500':
+        renderDOM('.root', new Error500Page());
+        break;
+    case '/signin':
+        renderDOM('.root', new SigninPage());
+        break;
+    case '/signin-pass':
+        renderDOM('.root', new SigninConfirmPage());
 
-window.page = page;
-window.content = content;
-window.changePageContent = () => {
+        break;
+    case '/signup':
+        renderDOM('.root', new SignupPage());
+        break;
+    case '/main':
+        renderDOM('.root', new MainPage());
+        break;
+    case '/edit-profile':
+        renderDOM('.root', new ProfilePage());
+        break;
+}
 
-    const newContext = new Page(
-        'div',
+
+/*window.changePageContent = () => {
+
+    const newContext = new Button(
+        'button',
         {
-            text: 'Another some text...'
+            field: 'Изменил заголовок',
         }
 
     );
-    page.setProps({ content: newContext } as any);
-}
-renderDOM('#root', page);
+    Pages.getWelcome()?.setProps({ content: newContext } as any);
+}*/
+
+
+//window.page = Pages.getWelcome();
+
+
+//renderDOM('.root', root);

@@ -2,29 +2,29 @@
 import button from "./components/button/button";
 
 export default  {
-    welcome: {
+    WelcomePage: {
         welcomeTitle: 'Добро пожаловать в Spectre',
-        welcomeButton: button('welcome-btn', 'Войти', 'button'),
+        welcomeButton: button('WelcomePage-btn', 'Войти', 'button'),
     },
     h1: 'Title',
     content: 'Содержимое',
     fname: 'students',
 
-    signin: {
+    signinPage: {
         title: 'Авторизация',
-        signinButton: button('welcome-btn', 'ДАЛЕЕ', ''),
-        signinPassButton: button('welcome-btn', 'ВХОД', ''),
+        signinButton: button('WelcomePage-btn', 'ДАЛЕЕ', ''),
+        signinPassButton: button('WelcomePage-btn', 'ВХОД', ''),
     },
-    signup: {
+    signupPage: {
         title: 'Регистрация',
-        signupButton: button('welcome-btn', 'Зарегистрироваться', ''),
+        signupButton: button('WelcomePage-btn', 'Зарегистрироваться', ''),
 
     },
-    main: {
+    mainLayout: {
         title: 'Здесть что-то будет!!! Осталость совсем немного... :)',
 
     },
-    profile: {
+    profilePage: {
         edit: {
             title: 'Изменить профиль',
             login: 'Mark',
@@ -41,7 +41,7 @@ export default  {
                         email: 'testtest@yandex.ru',
                         nickname: '"Фаина Раневская"',
                     },
-                label: {
+                field: {
                         first_name: 'Имя (обязательно)',
                 },
                 description: {
@@ -52,7 +52,7 @@ export default  {
                 data: {
 
                 },
-                    label: {
+                    field: {
                         login: 'Имя пользователя',
                 },
                 description: {

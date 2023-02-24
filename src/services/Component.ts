@@ -102,7 +102,7 @@ export default class Component<TypeProps extends Record<string, any> = any> {
         });
     }
 
-    private getChildren(propsWithChild: TypeProps) {
+    /*private getChildren(propsWithChild: TypeProps) {
 
         const children: Record<string, Component>  = {};
         const props: Record<string, any> = {};
@@ -114,9 +114,25 @@ export default class Component<TypeProps extends Record<string, any> = any> {
                 props[key] = propsWithChild[key];
         });
         return { props, children };
+    }*/
+    private getChildren(propsWithChild: TypeProps) {
+
+        const children: Record<string, Component>  = {};
+        const props: Record<string, any> = {};
+
+        Object.keys(propsWithChild).forEach(key => {
+            if (Array.isArray(key) && key.length > 0 && key.every(v => v instanceof Component)){
+                children[key] = propsWithChild[key];
+            } else
+            if (propsWithChild[key] instanceof Component)
+                children[key] = propsWithChild[key];
+            else
+                props[key] = propsWithChild[key];
+        });
+        return { props, children };
     }
 
-    protected compile(template: string, props?: any) {
+    /*protected compile(template: string, props?: any) {
 
         if (typeof (props) == 'undefined')
             props = this.props;
@@ -124,6 +140,32 @@ export default class Component<TypeProps extends Record<string, any> = any> {
         const propsWithStubs = { ...props };
         Object.entries(this.children).forEach(([key, child]) => {
             propsWithStubs[key] = `<div data-id="${child.id}"></div>`;
+
+        });
+
+        const fragment = this.createDocumentElement('template') as HTMLTemplateElement;
+        fragment.innerHTML = Handlebars.compile(template)(propsWithStubs);
+
+        Object.values(this.children).forEach(child => {
+
+            const stub = fragment.content.querySelector(`[data-id="${child.id}"]`);
+            if (stub)
+                stub.replaceWith(child.getContent()!);
+        });
+        return fragment.content;
+    }*/
+    protected compile(template: string, props?: any) {
+
+        if (typeof (props) == 'undefined')
+            props = this.props;
+
+        const propsWithStubs = { ...props };
+        Object.entries(this.children).forEach(([key, child]) => {
+            if (Array.isArray(child)){
+                propsWithStubs[key] = child.map(child => `<div data-id="${child.id}"></div>`);
+            } else {
+                propsWithStubs[key] = `<div data-id="${child.id}"></div>`;
+            }
 
         });
 

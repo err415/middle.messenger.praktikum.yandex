@@ -1,14 +1,14 @@
 import Component from '../../services/Component';
 import tpl from './tpl';
 
-export default class Nav extends Component {
+export default class Form extends Component {
     render(){
-        console.log('Nav render');
+        console.log('form render');
         return this.compile(tpl);
     }
     addEvents() {
         this.element!.querySelectorAll('a').forEach(a => {
-           //Конкретный инвент кидаем
+            //Конкретный инвент кидаем
             //a.addEventListener('click', this.props.events.click);
             //Обработчик здесь
             /*a.addEventListener('click', (e) => {

@@ -1,5 +1,5 @@
 body,
-#root,
+.root,
 .wrapper_err500,
 .wrapper_err404,
 .button,
@@ -65,7 +65,7 @@ body, input, input:hover, input:focus, button {
   color: white;
 }
 
-#root {
+.root {
   width: 100%;
   height: 100vh;
   padding: 0;
@@ -381,6 +381,23 @@ a {
 #editProfile-formSlave-input::placeholder {
   color: white !important;
   font-size: 16px;
+}
+
+nav {
+  position: absolute;
+  width: 100%;
+  height: 50px;
+  margin: 0 auto;
+}
+
+nav ul li {
+  display: inline;
+  font-size: 24px;
+}
+
+.content {
+  width: 100%;
+  height: 100vh;
 }
 
 /*# sourceMappingURL=style.css.map */
