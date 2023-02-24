@@ -25,7 +25,7 @@ export default class ProfilePage extends Component {
                 },
                 attr: {
                     class: 'button',
-                    id: 'WelcomePage-btn',
+                    id: 'welcomePage-btn',
                 },
             }
         );

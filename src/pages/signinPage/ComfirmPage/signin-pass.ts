@@ -26,7 +26,7 @@ export default class SigninConfirmPage extends Component {
                 },
                 attr: {
                     class: 'button',
-                    id: 'WelcomePage-btn',
+                    id: 'welcomePage-btn',
                 },
             }
         );

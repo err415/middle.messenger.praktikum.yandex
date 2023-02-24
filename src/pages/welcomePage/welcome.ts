@@ -27,7 +27,7 @@ export default class WelcomePage extends Component<WelcomePageProps> {
                 },
                 attr: {
                     class: 'button',
-                    id: 'WelcomePage-btn',
+                    id: 'welcomePage-btn',
                 }
             }
         );
@@ -35,7 +35,7 @@ export default class WelcomePage extends Component<WelcomePageProps> {
     super( tag, props );
     };
     render() {
-        console.log('WelcomePage render');
+        console.log('welcomePage render');
         return this.compile(tpl);
     }
 }

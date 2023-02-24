@@ -5,7 +5,7 @@ import ProfilePage from "./pages/profilePage/profile";
 import SigninConfirmPage from "./pages/signinPage/ComfirmPage/signin-pass";
 import SigninPage from "./pages/signinPage/signin";
 import SignupPage from "./pages/signupPage/signup";
-import WelcomePage from "./pages/WelcomePage/welcome";
+import WelcomePage from "./pages/welcomePage/welcome";
 import Error404Page from "./pages/404Page/404";
 import Error500Page from "./pages/500Page/500";
 

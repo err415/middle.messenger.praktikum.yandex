@@ -2,9 +2,9 @@
 import button from "./components/button/button";
 
 export default  {
-    WelcomePage: {
+    welcomePage: {
         welcomeTitle: 'Добро пожаловать в Spectre',
-        welcomeButton: button('WelcomePage-btn', 'Войти', 'button'),
+        welcomeButton: button('welcomePage-btn', 'Войти', 'button'),
     },
     h1: 'Title',
     content: 'Содержимое',
@@ -12,12 +12,12 @@ export default  {
 
     signinPage: {
         title: 'Авторизация',
-        signinButton: button('WelcomePage-btn', 'ДАЛЕЕ', ''),
-        signinPassButton: button('WelcomePage-btn', 'ВХОД', ''),
+        signinButton: button('welcomePage-btn', 'ДАЛЕЕ', ''),
+        signinPassButton: button('welcomePage-btn', 'ВХОД', ''),
     },
     signupPage: {
         title: 'Регистрация',
-        signupButton: button('WelcomePage-btn', 'Зарегистрироваться', ''),
+        signupButton: button('welcomePage-btn', 'Зарегистрироваться', ''),
 
     },
     mainLayout: {
