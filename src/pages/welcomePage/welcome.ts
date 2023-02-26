@@ -3,7 +3,7 @@ import Component from "../../services/Component";
 import { Button } from "../../components/button/button";
 
 interface WelcomePageProps {
-    content: any;
+    //content: any;
 
 }
 export default class WelcomePage extends Component<WelcomePageProps> {
@@ -34,7 +34,7 @@ export default class WelcomePage extends Component<WelcomePageProps> {
 
     super( tag, props );
     };
-    render() {
+    render() : DocumentFragment {
         console.log('welcomePage render');
         return this.compile(tpl);
     }

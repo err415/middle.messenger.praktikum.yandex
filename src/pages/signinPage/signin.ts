@@ -51,7 +51,7 @@ export default class SigninPage extends Component {
         super( tag, props );
     };
 
-     render () {
+     render () : DocumentFragment {
         console.log('SigninPage render');
         return this.compile(tpl);
     }

@@ -2,7 +2,7 @@ import Component from '../../services/Component';
 import tpl from './tpl';
 
 export default class Nav extends Component {
-    render(){
+    render() : DocumentFragment {
         console.log('Nav render');
         return this.compile(tpl);
     }

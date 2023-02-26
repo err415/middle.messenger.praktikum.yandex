@@ -2,7 +2,7 @@ import tpl from './tpl';
 import Component from "../../services/Component";
 
 export class Button extends Component {
-	protected render() {
+	protected render() : DocumentFragment {
 		return this.compile(tpl);
 	}
 	protected addEvents() {

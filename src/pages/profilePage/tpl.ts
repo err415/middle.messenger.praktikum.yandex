@@ -1,7 +1,5 @@
 const tpl = `
 
-<div class="editProfile-wrapper">
-
     <div class="editProfile-window">
         <div class="editProfile-blockMain">
             <div class="editProfile-titleBlock">
@@ -33,7 +31,6 @@ const tpl = `
         </div>
 
     </div>
-</div>
 
 `;
 export default tpl;

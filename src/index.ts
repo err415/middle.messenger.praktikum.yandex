@@ -50,7 +50,6 @@ switch (window.location.pathname) {
         break;
     case '/signin-pass':
         renderDOM('.root', new SigninConfirmPage());
-
         break;
     case '/signup':
         renderDOM('.root', new SignupPage());

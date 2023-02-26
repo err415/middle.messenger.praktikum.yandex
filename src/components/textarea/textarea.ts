@@ -1,18 +1,18 @@
 import tpl from './tpl';
 import Component from "../../services/Component";
 
-export class Field extends Component {
-    protected render() : DocumentFragment {
-        console.log('Field render');
+export class Textarea extends Component {
+    protected render(): DocumentFragment {
+        console.log('Textarea render');
         return this.compile(tpl);
     }
     protected addEvents() {
-        this.element!.querySelectorAll('label').forEach(l => {
+        this.element!.querySelectorAll('textarea').forEach(l => {
             if (this.props.events != undefined){
                 Object.entries(this.props.events).forEach(([ key, value ]) => {
 
                     l.addEventListener(key, value as any);
-                    console.log('Label click');
+                    console.log('textarea click');
                 });
             }
         });

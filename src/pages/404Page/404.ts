@@ -13,7 +13,7 @@ export default class Error404Page extends Component {
 		props.text_1 = 'Домик неплохой, но райончик так себе.';
 		super( tag, props);
 	};
-	protected render() {
+	protected render() : DocumentFragment {
 		console.log('404 Page render')
 		return this.compile(tpl);
 	}

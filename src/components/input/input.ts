@@ -2,7 +2,7 @@ import tpl from './tpl';
 import Component from "../../services/Component";
 
 export class Input extends Component {
-    protected render() {
+    protected render(): DocumentFragment {
         console.log('Input render');
         return this.compile(tpl);
     }

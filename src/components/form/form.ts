@@ -2,7 +2,7 @@ import Component from '../../services/Component';
 import tpl from './tpl';
 
 export default class Form extends Component {
-    render(){
+    render(): DocumentFragment {
         console.log('form render');
         return this.compile(tpl);
     }
