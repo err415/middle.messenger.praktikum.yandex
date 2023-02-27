@@ -400,7 +400,7 @@ nav ul li {
   height: 100vh;
 }
 
-.mainPage-wrapper {
+.main-wrapper {
   width: 100%;
   height: 100vh;
   display: flex;
@@ -420,7 +420,7 @@ nav ul li {
   height: 100%;
 }
 
-.item-article-left {
+.chatlist-item {
   width: 100%;
   height: 10%;
   border-bottom: 1px solid black;
@@ -431,20 +431,29 @@ nav ul li {
   align-items: center;
 }
 
-.section-left-block {
+.chatlist-item:hover {
+  background: rgba(17, 180, 190, 0.31);
+  border-radius: 25px;
+  cursor: pointer;
+}
+
+.chatlist-header {
   clear: both;
   width: 100%;
   height: 5%;
-  display: block;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1%;
 }
 
 .list-left {
-  float: left;
   width: 40px;
   height: 40px;
   background: url("assets/img/icon_list_line.png");
   background-size: cover;
-  margin: 1%;
+  margin-right: 50px;
 }
 
 .list-left:hover {
@@ -453,8 +462,7 @@ nav ul li {
 }
 
 .search-right {
-  float: right;
-  width: 86%;
+  width: 76%;
   min-width: 10%;
   max-width: 87%;
   height: 87%;
@@ -462,6 +470,10 @@ nav ul li {
   background: #063752;
   border-radius: 50px;
   margin: 1% 2% 1% 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: start;
 }
 
 .input-search,
@@ -489,14 +501,14 @@ nav ul li {
   overflow: hidden;
   resize: none;
   outline: none;
-  color: white;
   margin: 0;
   display: flex;
   align-items: center;
+  color: #02FBFB;
 }
 
 .msg_textarea::placeholder {
-  color: rgba(129, 128, 128, 0.53);
+  color: rgba(2, 251, 251, 0.38);
 }
 
 .class_search_img {
@@ -645,6 +657,14 @@ nav ul li {
   color: rgba(215, 206, 206, 0.44);
 }
 
+.chatList_item_msgCount {
+  border-radius: 50px;
+  border: 1px solid;
+  background: rgba(15, 197, 186, 0.4);
+  width: 26px;
+  height: 26px;
+}
+
 .chatList_shortInfoSlave {
   display: flex;
   flex-direction: column;
@@ -663,10 +683,17 @@ nav ul li {
 }
 
 .chatList_shortDateTime,
-.chatList_msgCount {
+.chatList_block_msgCount {
   height: 50%;
   width: 100%;
   text-align: end;
+}
+
+.chatlist-item-list {
+  display: flex !important;
+  width: 100%;
+  height: 94%;
+  flex-direction: column;
 }
 
 /*# sourceMappingURL=style.css.map */
