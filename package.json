@@ -15,7 +15,6 @@
     "@parcel/transformer-inline-string": "^2.8.3",
     "@parcel/validator-typescript": "^2.8.3",
     "@types/uuid": "^9.0.0",
-    "events": "^3.3.0",
     "parcel": "^2.8.3",
     "parcel-transformer-hbs": "^1.0.4",
     "sass": "^1.57.1",
