@@ -9,6 +9,7 @@ import chatHeader from "../../components/chat/chatHeader/chatHeader";
 import Chat from "../../components/chat/chat";
 import chatBody from "../../components/chat/chatBody/chatBody";
 import chatFooter from "../../components/chat/chatFooter/chatFooter";
+import Message from "../../components/chat/message/message";
 
 
 
@@ -93,6 +94,15 @@ export default class MainPage extends Component {
         props.class_block_msgCount = 'chatList_block_msgCount';
         props.class_item_msgCount = 'chatList_item_msgCount';
         props.renderchat = false;
+        props.class_message_block = 'message_block';
+
+        props.class_section_msg = 'message';
+        props.class_msg_date = 'msg--date';
+        props.class_msg = 'msg';
+        props.class_msg_me = 'msg--me';
+        props.class_msg_them = 'msg--them'
+        props.msg_me = 'Привет, как ты?';
+        props.msg_them = 'Нормас';
 
 
         props['chatList'] = new ChatList(
@@ -249,6 +259,27 @@ export default class MainPage extends Component {
                         attr: {
                             class: props.class_right_body,
                         },
+                        msg: new Message(
+                            'section',
+                            {
+                                attr: {
+                                    class: props.class_section_msg,
+                                },
+                                items:
+                                    [
+                                        {
+                                            class_msg_date: props.class_msg_date,
+                                            class_msg: props.class_msg,
+                                            class_msg_me: props.class_msg_me,
+                                            msg_me: props.msg_me,
+                                            class_msg_them: props.class_msg_them,
+                                            msg_them: props.msg_them,
+                                        },
+
+
+                                    ],
+                            }
+                        ),
                     }
                 ),
                 chat_footer: new chatFooter(
