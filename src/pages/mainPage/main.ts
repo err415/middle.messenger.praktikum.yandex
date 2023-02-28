@@ -1,17 +1,19 @@
 import tpl from './tpl';
 import Component from "../../services/Component";
-import {Textarea} from "../../components/textarea/textarea";
 import ChatList from "../../components/chatList/chatList";
 import {Input} from "../../components/input/input";
 import ListHeader from "../../components/chatList/listHeader/listHeader";
 import Item from "../../components/chatList/Item/item";
-import Chat from "../../components/chat/chat";
+import {Textarea} from "../../components/textarea/textarea";
 import chatHeader from "../../components/chat/chatHeader/chatHeader";
+import Chat from "../../components/chat/chat";
 import chatBody from "../../components/chat/chatBody/chatBody";
 import chatFooter from "../../components/chat/chatFooter/chatFooter";
 
 
+
 export default class MainPage extends Component {
+
 
     constructor(tag = 'div', props: any = {}) {
 
@@ -20,6 +22,7 @@ export default class MainPage extends Component {
             class: 'main-wrapper',
         }
         //Данные
+        props.chat_user_name = undefined;
         props.chat1_user_id = 1;
         props.chat1_user_name = 'Faina Ranevskaya';
         props.chat1_user_shortMsg = 'Привет, как ты?';
@@ -36,6 +39,7 @@ export default class MainPage extends Component {
         props.class_setting_list = 'list-left';
         props.class_search = 'search-right';
         props.class_search_img = 'class_search_img';
+        props.id_right_section = 'wrap-right-id';
         props.class_right_section = 'wrap-right';
         props.class_right_header = 'right_section_header';
         props.class_right_body = 'right_section_body';
@@ -88,6 +92,8 @@ export default class MainPage extends Component {
         props.class_shortDateTime = 'chatList_shortDateTime';
         props.class_block_msgCount = 'chatList_block_msgCount';
         props.class_item_msgCount = 'chatList_item_msgCount';
+        props.renderchat = false;
+
 
         props['chatList'] = new ChatList(
             'section',
@@ -126,8 +132,9 @@ export default class MainPage extends Component {
                         },
                         events: {
                             click: (e: Event) => {
-                                console.log('item click');
-                                console.log();
+
+                                document.getElementById('wrap-chat-null')!.style.display = 'none';
+                                document.getElementById('wrap-right-id')!.style.display = 'flex';
                                 e.preventDefault();
                                 e.stopPropagation();
                             }
@@ -203,13 +210,18 @@ export default class MainPage extends Component {
             }
         );
 
+    console.log(props.renderchat)
+
         props['Chat'] = new Chat(
+
           'section',
 
             {
                 attr: {
                   class: props.class_right_section,
+                    id: props.id_right_section,
                 },
+
                 chat_header: new chatHeader(
                     'header',
                     {
@@ -218,6 +230,8 @@ export default class MainPage extends Component {
 
                         },
                         chat_user_name: props.chat1_user_name,
+                        chat_user_shortMsg: props.chat1_user_msg,
+                        chat_user_datetime: props.chat1_user_datetime,
                         class_header_block_left: props.class_header_block_left,
                         class_header_block_left_avatar: props.class_header_block_left_avatar,
                         class_header_block_left_name: props.class_header_block_left_name,
@@ -267,7 +281,9 @@ export default class MainPage extends Component {
             }
         );
 
+
         super(tag, props);
+
     };
 
     protected render(): DocumentFragment {

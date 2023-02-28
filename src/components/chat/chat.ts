@@ -3,7 +3,8 @@ import tpl from './tpl';
 
 export default class Chat extends Component {
 
-    render(): DocumentFragment {
+
+    protected render(): DocumentFragment {
         console.log('ChatWindow render');
         return this.compile(tpl);
     };
