@@ -1,7 +1,7 @@
 const tpl = `
 
 {{#each items}}
-<article class="{{ class_chatlist_item }}">
+<article id="{{ chat_user_id }}" class="{{ class_chatlist_item }}">
 <span class="{{ class_list_chat_avatar }}"></span>
     <div class="{{ class_chatList_shortInfoMain}}">
 <span class="{{ class_shortName }}"> {{ chat_user_name }}</span>

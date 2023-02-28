@@ -20,10 +20,12 @@ export default class MainPage extends Component {
             class: 'main-wrapper',
         }
         //Данные
+        props.chat1_user_id = 1;
         props.chat1_user_name = 'Faina Ranevskaya';
         props.chat1_user_shortMsg = 'Привет, как ты?';
         props.chat1_user_datetime =  'Пт';
         props.chat1_user_msg_count =  '12';
+        props.chat2_user_id = 2;
         props.chat2_user_name = 'Иван Будько';
         props.chat2_user_shortMsg = 'Никак...';
         props.chat2_user_datetime =  '13:00';
@@ -125,13 +127,14 @@ export default class MainPage extends Component {
                         events: {
                             click: (e: Event) => {
                                 console.log('item click');
-
+                                console.log();
                                 e.preventDefault();
                                 e.stopPropagation();
                             }
                         },
                         items: [
                             {
+                                chat_user_id: props.chat1_user_id,
                                 chat_user_name: props.chat1_user_name,
                                 chat_user_shortMsg: props.chat1_user_shortMsg,
                                 chat_user_datetime: props.chat1_user_datetime,
@@ -147,6 +150,7 @@ export default class MainPage extends Component {
                                 class_item_msgCount: props.class_item_msgCount,
                             },
                             {
+                                chat_user_id: props.chat2_user_id,
                                 chat_user_name: props.chat2_user_name,
                                 chat_user_shortMsg: props.chat2_user_shortMsg,
                                 chat_user_datetime: props.chat2_user_datetime,
@@ -162,6 +166,7 @@ export default class MainPage extends Component {
                                 class_item_msgCount: props.class_item_msgCount,
                             },
                             {
+                                chat_user_id: props.chat1_user_id,
                                 chat_user_name: props.chat1_user_name,
                                 chat_user_shortMsg: props.chat1_user_shortMsg,
                                 chat_user_datetime: props.chat1_user_datetime,
@@ -177,6 +182,7 @@ export default class MainPage extends Component {
                                 class_item_msgCount: props.class_item_msgCount,
                             },
                             {
+                                chat_user_id: props.chat2_user_id,
                                 chat_user_name: props.chat2_user_name,
                                 chat_user_shortMsg: props.chat2_user_shortMsg,
                                 chat_user_datetime: props.chat2_user_datetime,
@@ -196,6 +202,7 @@ export default class MainPage extends Component {
                 )
             }
         );
+
         props['Chat'] = new Chat(
           'section',
 
@@ -208,29 +215,58 @@ export default class MainPage extends Component {
                     {
                         attr: {
                           class: props.class_right_header,
+
                         },
+                        chat_user_name: props.chat1_user_name,
+                        class_header_block_left: props.class_header_block_left,
+                        class_header_block_left_avatar: props.class_header_block_left_avatar,
+                        class_header_block_left_name: props.class_header_block_left_name,
+                        class_header_block_right: props.class_header_block_right,
+                        class_header_icon_search: props.class_header_icon_search,
+                        class_header_icon_phone: props.class_header_icon_phone,
+                        class_header_icon_list: props.class_header_icon_list,
+
                     }
 
                 ),
-                chatBody: new chatBody(),
-                chatFooter: new chatFooter(),
+                chat_body: new chatBody(
+                    'main',
+                    {
+                        attr: {
+                            class: props.class_right_body,
+                        },
+                    }
+                ),
+                chat_footer: new chatFooter(
+                    'footer',
+                    {
+                        attr: {
+                            class: props.class_right_footer,
+                        },
+                        class_message_icon_smile_wrap: props.class_message_icon_smile_wrap,
+                        class_message_icon_smile: props.class_message_icon_smile,
+                        textarea_msg: new Textarea(
+                            'textarea',
+                            {
+                                attr: {
+                                    class: 'msg_textarea',
+                                    name: 'area_msg',
+                                    type: 'text',
+                                    placeholder: 'Сообщение...',
+                                    maxLength: '255',
+                                    autocomplete: 'on',
+
+                                }
+                            }
+                        ),
+                        class_message_icon_clip_wrap: props.class_message_icon_clip_wrap,
+                        class_message_icon_clip: props.class_message_icon_clip,
+
+                    }
+                ),
             }
         );
 
-        props['textarea_msg'] = new Textarea(
-            'textarea',
-            {
-                attr: {
-                    class: 'msg_textarea',
-                    name: 'area_msg',
-                    type: 'text',
-                    placeholder: 'Сообщение...',
-                    maxLength: '255',
-                    autocomplete: 'on',
-
-                }
-            }
-        );
         super(tag, props);
     };
 

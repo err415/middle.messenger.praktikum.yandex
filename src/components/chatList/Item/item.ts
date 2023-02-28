@@ -6,7 +6,8 @@ export default class Item extends Component {
         return this.compile(tpl);
     }
     addEvents() {
-        this.element!.querySelectorAll('article').forEach(item => {
+         this.element!.querySelectorAll('article').forEach(item => {
+        //this.element!.querySelector(`${this.props.chat_user_id}`)
             //Конкретный инвент кидаем
             //a.addEventListener('click', this.props.events.click);
             //Обработчик здесь
@@ -16,14 +17,17 @@ export default class Item extends Component {
                 console.log('Link clicked')
             })*/
             //Проверяем, пришли ли ивенты, если да - разбираем их и добавляем обработчик.
+             console.log(item);
+             console.log(item.id);
             if(this.props.events != undefined) {
                 Object.entries(this.props.events).forEach(([key, value]) => {
                     item.addEventListener(key, value as any);
-                    console.log('Автомат ивент item');
+                    console.log('add EventListener Item');
 
                 });
             }
-        });
+        }
+        );
         super.addEvents();
-    }
+}
 }

@@ -1,9 +1,5 @@
 const tpl = `
-
-<main class="{{ class_right_body }}">
-
-</main>
-
+<h1>BODY!</h1>
 `;
 
 export default tpl;
