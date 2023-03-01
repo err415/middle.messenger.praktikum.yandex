@@ -1,11 +1,12 @@
 const tpl = `
 
     <h1>{{ title }}</h1>
-    <form class="signup-form" action="/signin">
+    <form id="signup-form" class="signup-form" action="/" method="post">
         
             {{{ label }}}
        
-        <a href="/signin">{{{ button }}}</a>
+        {{{ button }}}
+        
     </form>
 
 `;

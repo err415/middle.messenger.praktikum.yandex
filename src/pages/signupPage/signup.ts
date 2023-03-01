@@ -2,16 +2,19 @@ import tpl from './tpl';
 import Component from "../../services/Component";
 import { Button } from "../../components/button/button";
 import {Field} from "../../components/field/field";
+import {isValidFirstName} from '../../utils/validate';
 
 
 
 export default class SignupPage extends Component {
+
     constructor(tag: string = 'div', props: any = {}) {
         tag = 'section';
         props['attr'] = {
             class: 'signup-wrapper',
         }
-        props.title = 'Регстриция';
+        props.title = 'Регистрация';
+        props.valid_value = '';
         props['button'] = new Button(
             'button',
             {
@@ -19,14 +22,36 @@ export default class SignupPage extends Component {
                 events: {
                     click: (e: Event) => {
                         console.log('Регистрация click');
-                        window.location.href = '/signin';
+
+                        //window.location.href = '/signin';
                         e.preventDefault();
+                        const formEl = document.getElementsByClassName('signup-form')[0];
+                        const formData  = new FormData(formEl as HTMLFormElement);
+                        const first_name = formData.get('first_name');
+                        const validFirstName = isValidFirstName(first_name);
+                        console.log(validFirstName);
+                        const last_name = formData.get('last_name');
+                        const login = formData.get('login');
+                        const email = formData.get('email');
+                        const phone = formData.get('phone');
+                        const password = formData.get('password');
+                        const password_verify = formData.get('password_verify');
+                        console.log('Имя: ' + first_name ,
+                            ' Фамилия: ' + last_name,
+                            ' Логин: ' + login,
+                            ' E-mail: ' + email,
+                            ' Телефон: ' + phone,
+                            ' Пароль: ' + password,
+                            ' Подтверждение пароля: ' + password_verify);
+
                         e.stopPropagation();
-                    }
+
+                    },
                 },
                 attr: {
                     class: 'button',
                     id: 'welcomePage-btn',
+                    type: 'submit',
                 },
             }
         );
@@ -41,15 +66,17 @@ export default class SignupPage extends Component {
                         label_value: 'Введите ваше Имя:',
                         input_class: 'input-signup',
                         input_name: 'first_name',
-                        input_type: 'text'
+                        input_type: 'text',
+                        class_validate_err: 'valid-err--msg',
+                        valid_error: '[A-Z, a-z]',
                     },
                     {
                         class_wrap_fields: 'field',
                         label_class: 'field-signup',
-                        label_for: 'second_name',
+                        label_for: 'last_name',
                         label_value: 'Введите вашу Фамилию:',
                         input_class: 'input-signup',
-                        input_name: 'first_name',
+                        input_name: 'last_name',
                         input_type: 'text'
                     },
                     {
@@ -85,7 +112,7 @@ export default class SignupPage extends Component {
                         label_for: 'password-verify',
                         label_value: 'Повторите пароль:',
                         input_class: 'input-signup',
-                        input_name: 'password-verify',
+                        input_name: 'password_verify',
                         input_type: 'password'
                     },
                     {

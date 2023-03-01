@@ -184,6 +184,11 @@ a {
   line-height: 46px;
 }
 
+.signup-wrapper h1 {
+  display: flex;
+  font-size: 5em;
+}
+
 .field {
   clear: both;
   text-align: right;
@@ -203,12 +208,24 @@ a {
 
 .signup-form {
   width: 45%;
-  margin: 10% 0 10% 0;
+  margin: 5% 0 10% 0;
 }
 
 .signup-form a, .signup-form button {
   width: 100% !important;
   height: 15% !important;
+}
+
+.valid-err--msg {
+  width: 100px;
+  height: 15px;
+  color: darkred;
+  display: none;
+  justify-content: flex-start;
+}
+
+.view {
+  display: flex;
 }
 
 .editProfile-wrapper {
@@ -781,6 +798,10 @@ blockquote {
   flex-direction: column;
   height: 80%;
   width: 100%;
+}
+
+a {
+  display: flex;
 }
 
 /*# sourceMappingURL=style.css.map */
