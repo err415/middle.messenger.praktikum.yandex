@@ -6,10 +6,10 @@ import Form from "../../components/form/form";
 
 
 export default class ProfilePage extends Component {
-    constructor(tag: string = 'div', props: any = {}) {
+    constructor(tag = 'div', props: Record<string, unknown> = {}) {
         tag = 'section';
         props['attr'] = {
-            class: 'editProfile-wrapper',
+            class: 'edit-profile-wrapper',
         }
         props.title = 'Изменить профиль';
         props['button'] = new Button(
@@ -32,11 +32,11 @@ export default class ProfilePage extends Component {
         props['formMain'] = new Form(
             'form',
             {
-                class_labelBlock: 'editProfile-labelBlock',
-                class_descBlock: 'editProfile-description',
+                class_labelBlock: 'edit-profile-label-block',
+                class_descBlock: 'edit-profile-description',
                 labels: [
                     {
-                        class_label: 'label-editProfile',
+                        class_label: 'label-edit-profile',
                         forLabel: 'first_name',
                         label_value: 'Имя (обязательно)'
                     },
@@ -45,42 +45,42 @@ export default class ProfilePage extends Component {
 
                     {
                         input_name: 'first_name',
-                        class_inputEditProfile: 'input-editProfile',
+                        class_inputEditProfile: 'input-edit-profile',
                         input_type: 'text',
                         input_placeholder: ''
 
                     },
                     {
                         input_name: 'last_name',
-                        class_inputEditProfile: 'input-editProfile',
+                        class_inputEditProfile: 'input-edit-profile',
                         input_type: 'text',
                         input_placeholder: 'Фамилия (необязательно)'
 
                     },
                     {
                         input_name: 'about_myself',
-                        class_inputEditProfile: 'input-editProfile',
+                        class_inputEditProfile: 'input-edit-profile',
                         input_type: 'text',
                         input_placeholder: 'О себе'
 
                     },
                     {
                         input_name: 'e-mail',
-                        class_inputEditProfile: 'input-editProfile',
+                        class_inputEditProfile: 'input-edit-profile',
                         input_type: 'text',
                         input_placeholder: 'testtest@yandex.ru'
 
                     },
                     {
                         input_name: 'phone',
-                        class_inputEditProfile: 'input-editProfile',
+                        class_inputEditProfile: 'input-edit-profile',
                         input_type: 'text',
                         input_placeholder: '8 (999) 999 99-99'
 
                     },
                     {
                         input_name: 'nickname',
-                        class_inputEditProfile: 'input-editProfile',
+                        class_inputEditProfile: 'input-edit-profile',
                         input_type: 'text',
                         input_placeholder: 'Фаина Раневская'
 
@@ -103,7 +103,7 @@ export default class ProfilePage extends Component {
                     }
                 },
                 attr: {
-                    class: 'editProfile-form-main',
+                    class: 'edit-profile-form-main',
 
                 },
             }
@@ -111,11 +111,11 @@ export default class ProfilePage extends Component {
         props['formSlave'] = new Form(
             'form',
             {
-                class_labelBlock: 'editProfile-labelBlock',
-                class_descBlock: 'editProfile-description',
+                class_labelBlock: 'edit-profile-label-block',
+                class_descBlock: 'edit-profile-description',
                 labels: [
                     {
-                        class_label: 'label-editProfile',
+                        class_label: 'label-edit-profile',
                         forLabel: 'login',
                         label_value: 'Имя пользователя'
                     },
@@ -123,9 +123,9 @@ export default class ProfilePage extends Component {
                 inputs: [
 
                     {
-                        input_id: 'editProfile-formSlave-input',
+                        input_id: 'edit-profile-form-slave-input',
                         input_name: 'login',
-                        class_inputEditProfile: 'input-editProfile',
+                        class_inputEditProfile: 'input-edit-profile',
                         input_type: 'text',
                         input_placeholder: 'Mark'
 
@@ -153,14 +153,14 @@ export default class ProfilePage extends Component {
                     }
                 },
                 attr: {
-                    class: 'editProfile-form-slave',
+                    class: 'edit-profile-form-slave',
 
                 },
             }
         );
 
         super( tag, props );
-    };
+    }
 
     protected render (): DocumentFragment {
         return this.compile(tpl);

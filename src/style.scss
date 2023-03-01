@@ -37,8 +37,8 @@ $bg-image-editprofile-url: url("/src/assets/img/avatar-cam.png");
 
 body,
 .root,
-.wrapper_err500,
-.wrapper_err404,
+.wrapper-err-500,
+.wrapper-err-404,
 .button,
 .welcome-wrap,
 .signin-form,
@@ -46,24 +46,23 @@ body,
 .signin-wrapper,
 .signup-wrapper,
 .signin-pass-msg,
-.editProfile-btn-passwordChange,
-.editProfile-avaBlock,
-.editProfile-labelBlock,
-.editProfile-titleBlock,
-.editProfile-window,
-.editProfile-form-main,
-.editProfile-form-slave {
+.edit-profile-btn-password-change,
+.edit-profile-ava-block,
+.edit-profile-label-block,
+.edit-profile-title-block,
+.edit-profile-window,
+.edit-profile-form-main,
+.edit-profile-form-slave {
   display: $display-flex;
 }
 .signup-wrapper,
 .button,
 .welcome-wrap,
 .signin-wrapper,
-.signup-wrapper,
-.editProfile-btn-passwordChange,
-.editProfile-avaBlock,
-.editProfile-form-main,
-.editProfile-form-slave {
+.edit-profile-btn-password-change,
+.edit-profile-ava-block,
+.edit-profile-form-main,
+.edit-profile-form-slavee {
   align-items: $align-items-center;
   text-align: $text-align-center;
   justify-content: $justify-content-center;
@@ -73,9 +72,9 @@ body,
 .welcome-wrap,
 .signin-form,
 .pass-form,
-.editProfile-window,
-.editProfile-form-main,
-.editProfile-form-slave {
+.edit-profile-window,
+.edit-profile-form-main,
+.edit-profile-form-slave {
   flex-direction: $flex-direction-column;
 }
 
@@ -108,7 +107,7 @@ body, input, input:hover, input:focus, button{
   align-items: $align-items-center;
   line-height: $line-height-7;
 }
-.wrapper_err500, .wrapper_err404 {
+.wrapper-err-500, .wrapper-err-404 {
 
   font-family: $font-family-inter;
   font-style: $font-style-normal;
@@ -119,12 +118,12 @@ body, input, input:hover, input:focus, button{
   width: 500px;
   height: 58px;
 }
-.wrapper_err500 p, .wrapper_err404 p {
+.wrapper-err-500 p, .wrapper-err-404 p {
   font-weight: $font-weight-800 !important;
   font-size: $font-size-24;
 
 }
-.wrapper_err500 a, .wrapper_err404 a {
+.wrapper-err-500 a, .wrapper-err-404 a {
   margin-top: 15%;
   text-decoration-line: underline;
   font-family: $font-family-inter;
@@ -134,7 +133,7 @@ body, input, input:hover, input:focus, button{
   line-height: 19px;
   color: $color-purple;
 }
-.wrapper_err500 h1, .wrapper_err404 h1 {
+.wrapper-err-500 h1, .wrapper-err-404 h1 {
   font-size: 96px;
 }
 .button {
@@ -144,10 +143,10 @@ body, input, input:hover, input:focus, button{
   font-size: 42px;
   line-height: 39px;
 }
-label, .mainField {
+label, .main-field {
   float: $float-left;
 }
-label, button, .wrapper_err404 a, .wrapper_err500 a {
+label, button, .wrapper-err-404 a, .wrapper-err-500 a {
   font-family: $font-family-inter;
   font-style: $font-style-normal;
   font-weight: 700;
@@ -156,6 +155,7 @@ label, button, .wrapper_err404 a, .wrapper_err500 a {
   padding-right: 10px;
 }
 a {
+  display: flex;
   text-decoration-line: $text-decoration-line-none;
 }
 .welcome-wrap h1 {
@@ -173,7 +173,7 @@ a {
   font-size: 96px !important;
   margin-bottom: 20%;
 }
-#link_to_register {
+#link-register {
   margin-top: 2% !important;
   text-decoration-line: underline !important;
 }
@@ -212,7 +212,7 @@ a {
   width: 60%;
   margin-top: 15px;
 }
-.mainField {
+.main-field {
   width: 100%;
   margin-bottom: 10%;
 }
@@ -236,29 +236,29 @@ a {
   display: flex;
 }
 
-.editProfile-wrapper {
+.edit-profile-wrapper {
   width: 100%;
   height: 100%;
   background: $color-darkgreen-trans-30;
 }
-.editProfile-window {
+.edit-profile-window {
   align-items: flex-start;
   justify-content: flex-start;
   width: 30%;
   height: 100%;
 
 }
-.editProfile-blockMain, .editProfile-blockSlave {
+.edit-profile-block-main, .edit-profile-block-slave {
   background: $color-darkblue ;
   width: 100%;
 }
-.editProfile-blockSlave {
+.edit-profile-block-slave {
   margin-top: 3%;
 }
-.editProfile-form-main {
+.edit-profile-form-main {
   margin-top: 9%;
 }
-.avaBlock-btn-upload-img {
+.ava-block-btn-upload-img {
   cursor: pointer;
   margin: 1% 0 0 6% !important;
   display: block;
@@ -267,12 +267,12 @@ a {
   height: 32px;
   background-image: $bg-image-editprofile-url;
 }
-.editProfile-form-slave {
+.edit-profile-form-slave {
   margin-top: 3%;
   margin-bottom: 3%;
 
 }
-.input-editProfile {
+.input-edit-profile {
   width: 90%;
   border-radius: 25px;
   border-bottom: none !important;
@@ -281,9 +281,8 @@ a {
   background: rgba(217, 217, 217, 0.04);
   padding-left: 7%;
   font-size: 16px;
-  font-family: "Tomorrow";
 }
-.input-editProfile::placeholder {
+.input-edit-profile::placeholder {
   font-size: 14px;
 }
 
@@ -294,47 +293,47 @@ a {
   width: 80%;
   text-align: left;
 }
-.editProfile-description {
+.edit-profile-description {
   width: 100%;
   margin-left: 15%;
 }
-.editProfile-labelBlock {
+.edit-profile-label-block {
   width: 90%;
   margin-left: 15%;
 }
-.label-editProfile {
+.label-edit-profile {
   font-size: 12px;
   color: $color-darkgray-trans-20 !important;
 }
-.editProfile-titleBlock{
+.edit-profile-title-block{
   width: 100%;
   flex-direction: row;
 
 }
-.editProfile-backAarrow {
+.edit-profile-back-arrow {
   margin: 2% 0 0 5%;
 }
-#editProfile-title {
+#edit-profile-title {
   margin-left: 7%;
   font-size: 30px;
 }
-.editProfile-login {
+.edit-profile-login {
   margin-top: 3%;
 }
-.editProfile-avaBlock {
+.edit-profile-ava-block {
   margin-top: 4%;
   height: 15%;
   width: 100%;
   flex-direction: column;
 }
-.editProfile-avatar {
+.edit-profile-avatar {
   display: block;
   width: 128px !important;
   height: 111px !important;
   background: $color-gray-trans-40 !important;
   border-radius: 50% !important;
 }
-.editProfile-avatar::before {
+.edit-profile-avatar::before {
   content: "";
   display: inline-block;
   vertical-align: middle;
@@ -372,19 +371,19 @@ a {
     transform: rotate(-135deg);
   }
 }
-.editProfile-changePwd-btn {
+.edit-profile-change-pwd-btn {
   color: $color-darkred;
   text-decoration: underline;
   font-size: 20px;
 }
-.editProfile-btn-passwordChange {
+.edit-profile-btn-password-change {
   margin-top: 3%;
   height: 100%;
   width: 100%;
 background: $color-darkblue;
   cursor: pointer;
 }
-#editProfile-formSlave-input::placeholder {
+#edit-profile-form-slave-input::placeholder {
   color: $color-white !important;
   font-size: 16px;
 
@@ -489,24 +488,13 @@ nav ul li {
   align-items: center;
   justify-content: start;
 }
-.input-search,
-.input-search:hover,
-.input-search:focus
-{
-  border-bottom: none !important;
-  width: 90%;
-  height: 97%;
-  float: right;
-  font-size: 17px;
-  min-width: 10%;
 
-}
-.msg_textarea,
-.msg_textarea:hover,
-.msg_textarea:focus,
-.msg_textarea:active,
-.msg_textarea:target,
-.msg_textarea:focus-visible {
+.message,
+.message:hover,
+.message:focus,
+.message:active,
+.message:target,
+.message:focus-visible {
   width: 80%;
   height: 50%;
   border: none !important;
@@ -520,17 +508,17 @@ nav ul li {
   align-items: center;
   color: #02FBFB;
 }
-.msg_textarea::placeholder {
+.message::placeholder {
   color: rgba(2, 251, 251, 0.38);
 }
-.class_search_img {
+.class-search-img {
   background: url("assets/img/icon-search.png");
   float: left;
   width: 24px;
   height: 24px;
   margin: 2%;
 }
-.right_section_header {
+.right-section-header {
   margin: 0 auto;
   background: rgba(16, 175, 185, 0.08);
   height: 7%;
@@ -540,7 +528,7 @@ nav ul li {
   flex-direction: row;
 }
 
-.right_section_footer {
+.right-section-footer {
   margin: 2% auto;
   height: 6%;
   width: 75%;
@@ -582,7 +570,7 @@ nav ul li {
   border: 1px solid rgba(155, 155, 155, 0.31);
   border-radius: 50px;
 }
-.header_block_left {
+.header-block-left {
   display: flex;
   width: 40%;
   height: 100%;
@@ -590,7 +578,7 @@ nav ul li {
   align-items: center;
   flex-direction: row;
 }
-.header_block_right {
+.header-block-right {
   display: flex;
   width: 50%;
   height: 100%;
@@ -598,33 +586,33 @@ nav ul li {
   align-items: center;
   flex-direction: row;
 }
-.header_chat_user_avatar{
+.header-chat-user-avatar{
   width: 50px;
   height: 50px;
   background: #83A7C9;
   border-radius: 50%;
 }
-.header_chat_user_name {
+.header-chat-user-name {
   margin-left: 15px;
 }
-.header_chat_user_icon_search,
-.header_chat_user_icon_phone,
-.header_chat_user_icon_list{
+.header-chat-user-icon-search,
+.header-chat-user-icon-phone,
+.header-chat-user-icon-list{
   display: flex;
   width: 32px;
   height: 32px;
   margin-left: 10px;
 }
-.header_chat_user_icon_search {
+.header-chat-user-icon-search {
   background-image: url("assets/img/icons-search32.png");
 }
-.header_chat_user_icon_phone {
+.header-chat-user-icon-phone {
   background-image: url("assets/img/icon-phone.png");
 }
-.header_chat_user_icon_list {
+.header-chat-user-icon-list {
   background-image: url("assets/img/icon_list_dot.png");
 }
-.item_avatar {
+.item-avatar {
   display: flex;
   width: 65px;
   height: 65px;
@@ -632,7 +620,7 @@ nav ul li {
   border-radius: 50%;
   margin-left: 1%;
 }
-.chatList_shortInfoMain {
+.chatlist-short-info-main {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -643,18 +631,18 @@ nav ul li {
 
 
 }
-.chatList_shortMsg,
-.chatList_shortDateTime,
+.chatlist-short-msg,
+.chatlist-short-datetime,
 .chatList_msgCount {
   color: rgba(215, 206, 206, 0.44);
 
 }
-.chatList_item_msgCount {
+.chatlist-item-msg-count {
 
   font-size: 14px;
 
 }
-.chatList_shortInfoSlave{
+.chatlist-short-info-slave{
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -664,14 +652,14 @@ nav ul li {
   height: 95%;
 
 }
-.chatList_shortMsg,
-.chatList_shortName {
+.chatlist-short-msg,
+.chatlist-short-name {
   height: 90%;
   width: 100%;
   text-align: start;
   font-size: 16px;
 }
-.chatList_block_msgCount{
+.chatlist-block-msg-count{
   display: flex;
   align-items: center;
   justify-content: center;
@@ -681,13 +669,13 @@ nav ul li {
   width: 20px;
   height: 20px;
 }
-.chatList_shortDateTime{
+.chatlist-short-datetime{
   font-size: 15px;
   width: 100%;
   height: 50%;
 }
-.chatList_shortDateTime,
-.chatList_block_msgCount {
+.chatlist-short-datetime,
+.chatlist-block-msg-count {
 
   text-align: center;
 
@@ -757,20 +745,20 @@ blockquote {
 .msg--me blockquote {
   background: rgba(15, 167, 176, 0.24);
   margin-left: 2em;
-  border-radius: 0px 10px 10px 5px;
+  border-radius: 0 10px 10px 5px;
 
 }
 
 
 .msg--them blockquote {
   background: rgba(45, 229, 187, 0.34);
-  border-radius: 0px 10px 10px 5px;
+  border-radius: 0 10px 10px 5px;
 
 }
 .messages, blockquote {
   padding: .5em;
 }
-.right_section_body {
+.right-section-body {
 
   display: flex;
   flex-direction: column;
@@ -778,10 +766,18 @@ blockquote {
   width: 100%;
 
 }
-a {
-  display: flex;
-}
+.input-search,
+.input-search:hover,
+.input-search:focus
+{
+  border-bottom: none !important;
+  width: 90%;
+  height: 97%;
+  float: right;
+  font-size: 17px;
+  min-width: 10%;
 
+}
 
 
 

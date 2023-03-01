@@ -1,6 +1,8 @@
-function render(query: string, component: any) {
-    const root : HTMLElement | null = document.querySelector(query);
-    root!.appendChild(component.getContent());
+import Component from "../services/Component";
+
+function render(query: string, component: Component ) {
+    const root: HTMLElement | null  = document.querySelector(query);
+    (root as HTMLElement).appendChild(component.getContent() as HTMLElement);
     component.dispatchComponentDidMount();
     return root;
 }

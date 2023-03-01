@@ -8,11 +8,11 @@ export class Input extends Component {
     }
 
     protected removeEvents() {
-        this.element!.querySelectorAll('input').forEach(l => {
+        (this.element as HTMLElement).querySelectorAll('input').forEach(l => {
             if (this.props.events != undefined){
                 Object.entries(this.props.events).forEach(([ key, value ]) => {
 
-                    l.removeEventListener(key, value as any);
+                    l.removeEventListener(key, value as () => void);
 
                 });
             }
@@ -21,11 +21,11 @@ export class Input extends Component {
     }
 
     protected addEvents() {
-        this.element!.querySelectorAll('input').forEach(l => {
+        (this.element as HTMLElement).querySelectorAll('input').forEach(l => {
             if (this.props.events != undefined){
                 Object.entries(this.props.events).forEach(([ key, value ]) => {
 
-                    l.addEventListener(key, value as any);
+                    l.addEventListener(key, value as () => void);
 
                 });
             }

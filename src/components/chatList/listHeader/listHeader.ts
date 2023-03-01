@@ -9,12 +9,12 @@ export default class ListHeader extends Component {
     }
 
     protected removeEvents() {
-        this.element!.querySelectorAll('input').forEach(i => {
+        (this.element as HTMLElement).querySelectorAll('input').forEach(i => {
 
             //Проверяем, пришли ли ивенты, если да - разбираем их и добавляем обработчик.
             if(this.props.events !=undefined) {
                 Object.entries(this.props.events).forEach(([key, value]) => {
-                    i.removeEventListener(key, value as any);
+                    i.removeEventListener(key, value as () => void);
 
 
                 });
@@ -24,12 +24,12 @@ export default class ListHeader extends Component {
     }
 
     addEvents() {
-        this.element!.querySelectorAll('input').forEach(i => {
+        (this.element as HTMLElement).querySelectorAll('input').forEach(i => {
 
             //Проверяем, пришли ли ивенты, если да - разбираем их и добавляем обработчик.
             if(this.props.events !=undefined) {
                 Object.entries(this.props.events).forEach(([key, value]) => {
-                    i.addEventListener(key, value as any);
+                    i.addEventListener(key, value as () => void);
 
                 });
             }

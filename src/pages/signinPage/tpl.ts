@@ -10,7 +10,7 @@ const tpl = `
 
 
     </form>
-    <a id="link_to_register" href="/signup">Нет аккаунта? - Зарегистрироваться</a>
+    <a id="link-register" href="/signup">Нет аккаунта? - Зарегистрироваться</a>
 
 `;
 

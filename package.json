@@ -15,9 +15,17 @@
     "@parcel/transformer-inline-string": "^2.8.3",
     "@parcel/validator-typescript": "^2.8.3",
     "@types/uuid": "^9.0.0",
+    "@typescript-eslint/eslint-plugin": "^5.54.0",
+    "@typescript-eslint/parser": "^5.54.0",
+    "eslint": "^8.35.0",
+    "eslint-config-airbnb-typescript": "^17.0.0",
+    "eslint-plugin-import": "^2.22.0",
     "parcel": "^2.8.3",
     "parcel-transformer-hbs": "^1.0.4",
     "sass": "^1.57.1",
+    "stylelint": "^15.2.0",
+    "stylelint-config-standard": "^30.0.1",
+    "stylelint-scss": "^4.4.0",
     "uuid": "^9.0.0"
   },
   "targets": {

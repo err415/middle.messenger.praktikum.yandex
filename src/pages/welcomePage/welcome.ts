@@ -2,12 +2,8 @@ import tpl from './tpl';
 import Component from "../../services/Component";
 import { Button } from "../../components/button/button";
 
-interface WelcomePageProps {
-    //content: any;
-
-}
-export default class WelcomePage extends Component<WelcomePageProps> {
-    constructor(tag = 'div', props: any = {}) {
+export default class WelcomePage extends Component {
+    constructor(tag = 'div', props: Record<string, unknown> = {}) {
         tag = 'section';
         props['attr'] = {
             class: 'welcome-wrap',
@@ -33,7 +29,7 @@ export default class WelcomePage extends Component<WelcomePageProps> {
         );
 
     super( tag, props );
-    };
+    }
     render() : DocumentFragment {
 
         return this.compile(tpl);

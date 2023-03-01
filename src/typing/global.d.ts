@@ -2,8 +2,8 @@ export {};
 
 declare global {
     interface Window {
-        page: {} | any;
-        content: {};
+        page: unknown;
+        content: unknown;
         changePageContent: () => void;
     }
 }

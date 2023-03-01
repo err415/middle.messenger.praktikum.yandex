@@ -1,31 +1,37 @@
 
-export class EventBus  {
-    private readonly events: Record<string, Function[]> = {};
+export class EventBus<E extends { [Ev: string]: unknown[] }>  {
+    private readonly events: {
+        [K in keyof E]?: Array<(...args: E[K]) => void>;
+    } = {};
 
     constructor() {
         this.events = {};
     }
 
-    attach(event: string, callback: () => void): void {
+    attach<K extends keyof E>(event: K, callback: (...args: E[K]) => void) {
         if (!this.events[event])
             this.events[event] = [];
 
-        this.events[event].push(callback);
+        this.events[event]!.push(callback);
     }
 
-    emit(event: string, ...args: unknown[]):void {
+    emit<K extends keyof E>(event: K, ...args: E[K]) {
         if (!this.events[event])
             return;
 
-        this.events[event].forEach(listener => { listener( ...args ) });
+        this.events[event]!.forEach(
+            listener => { listener( ...args ) }
+        );
 
     }
 
-    detach(event: string, callback: () => void):void {
+    detach<K extends keyof E>(event: K, callback: (...args: E[K]) => void) {
         if (!this.events[event])
             return;
 
-        this.events[event] = this.events[event].filter((item => item !== callback));
+        this.events[event] = this.events[event]!.filter(
+            item => item !== callback
+        );
     }
     _checkEvent(event:string) {
         if (!this.events[event]){

@@ -17,7 +17,7 @@ import img from '../../assets/img/slets.jpg';
 export default class MainPage extends Component {
 
 
-    constructor(tag = 'div', props: any = {}) {
+    constructor(tag = 'div', props: Record<string, unknown> = {}) {
 
         tag = 'section';
         props['attr'] = {
@@ -35,65 +35,45 @@ export default class MainPage extends Component {
         props.chat2_user_shortMsg = 'Никак...';
         props.chat2_user_datetime =  '13:00';
         props.chat2_user_msg_count =  '1';
+        props.msg_me = 'Привет, как ты?';
+        props.isAttach_me = true;
+        props.isAttach_them = false;
+        props.src_img_attach = img;
+        //props.msg_them = 'Нормас';
         //CSS Классы
-        props.class_article_left_item =  'listHeader-article-left',
         props.class_left_section =  'wrap-left';
         props.class_setting_list = 'list-left';
         props.class_search = 'search-right';
-        props.class_search_img = 'class_search_img';
+        props.class_search_img = 'class-search-img';
         props.id_right_section = 'wrap-right-id';
         props.class_right_section = 'wrap-right';
-        props.class_right_header = 'right_section_header';
-        props.class_right_body = 'right_section_body';
-        props.class_right_footer = 'right_section_footer';
-        props.class_header_block_right = 'header_block_right';
-        props.class_header_block_left = 'header_block_left';
+        props.class_right_header = 'right-section-header';
+        props.class_right_body = 'right-section-body';
+        props.class_right_footer = 'right-section-footer';
+        props.class_header_block_right = 'header-block-right';
+        props.class_header_block_left = 'header-block-left';
         props.class_message_icon_smile_wrap = 'icon-smile-wrapper';
         props.class_message_icon_clip_wrap = 'icon-clip-wrapper';
         props.class_message_icon_smile = 'icon-smile-item';
         props.class_message_icon_clip = 'icon-clip-item';
-        props.class_header_block_left_avatar = 'header_chat_user_avatar';
-        props.class_header_block_left_name = 'header_chat_user_name';
-        props.class_header_icon_search = 'header_chat_user_icon_search';
-        props.class_header_icon_phone = 'header_chat_user_icon_phone';
-        props.class_header_icon_list = 'header_chat_user_icon_list';
-        props.class_list_chat_avatar = 'item_avatar';
-        props.class_shortMsg = 'chatList_shortMsg';
-        props.class_shortName = 'chatList_shortName';
-        props.class_chatList_shortInfoMain = 'chatList_shortInfoMain';
-        props.class_chatList_shortInfoSlave = 'chatList_shortInfoSlave';
-        props.class_shortDateTime = 'chatList_shortDateTime';
-        props.class_block_msgCount = 'chatList_block_msgCount';
-        props.class_item_msgCount = 'chatList_item_msgCount';
+        props.class_header_block_left_avatar = 'header-chat-user-avatar';
+        props.class_header_block_left_name = 'header-chat-user-name';
+        props.class_header_icon_search = 'header-chat-user-icon-search';
+        props.class_header_icon_phone = 'header-chat-user-icon-phone';
+        props.class_header_icon_list = 'header-chat-user-icon-list';
+        props.class_list_chat_avatar = 'item-avatar';
+        props.class_shortMsg = 'chatlist-short-msg';
+        props.class_shortName = 'chatlist-short-name';
+        props.class_chatList_shortInfoMain = 'chatlist-short-info-main';
+        props.class_chatList_shortInfoSlave = 'chatlist-short-info-slave';
+        props.class_shortDateTime = 'chatlist-short-datetime';
+        props.class_block_msgCount = 'chatlist-block-msg-count';
+        props.class_item_msgCount = 'chatlist-item-msg-count';
         props.class_topBlock =  'section-left-block';
         props.class_setting_list= 'list-left';
         props.class_search= 'search-right';
         props.class_search_img= 'class_search_img';
         props.class_chatlist_item= 'chatlist-item';
-        props.class_right_section= 'wrap-right';
-        props.class_right_header= 'right_section_header';
-        props.class_right_body= 'right_section_body';
-        props.class_right_footer= 'right_section_footer';
-        props.class_header_block_right= 'header_block_right';
-        props.class_header_block_left= 'header_block_left';
-        props.class_message_icon_smile_wrap= 'icon-smile-wrapper';
-        props.class_message_icon_clip_wrap= 'icon-clip-wrapper';
-        props.class_message_icon_smile= 'icon-smile-item';
-        props.class_message_icon_clip= 'icon-clip-item';
-        props.class_header_block_left_avatar= 'header_chat_user_avatar';
-        props.class_header_block_left_name= 'header_chat_user_name';
-        props.class_header_icon_search= 'header_chat_user_icon_search';
-        props.class_header_icon_phone= 'header_chat_user_icon_phone';
-        props.class_header_icon_list= 'header_chat_user_icon_list';
-        props.class_list_chat_avatar = 'item_avatar';
-        props.class_shortMsg = 'chatList_shortMsg';
-        props.class_shortName = 'chatList_shortName';
-        props.class_chatList_shortInfoMain = 'chatList_shortInfoMain';
-        props.class_chatList_shortInfoSlave = 'chatList_shortInfoSlave';
-        props.class_chatList_shortInfoSlave = 'chatList_shortInfoSlave';
-        props.class_shortDateTime = 'chatList_shortDateTime';
-        props.class_block_msgCount = 'chatList_block_msgCount';
-        props.class_item_msgCount = 'chatList_item_msgCount';
         props.renderchat = false;
         props.class_message_block = 'message_block';
         props.class_section_msg = 'message';
@@ -101,12 +81,7 @@ export default class MainPage extends Component {
         props.class_msg = 'msg';
         props.class_msg_me = 'msg--me';
         //props.class_msg_them = 'msg--them'
-        props.msg_me = 'Привет, как ты?';
-        //props.msg_them = 'Нормас';
-        props.isAttach_me = true;
-        props.isAttach_them = false;
         props.class_img_attach = 'img-attach-me';
-        props.src_img_attach = img;
         props.alt_img_attach = 'img-attach';
 
 
@@ -121,7 +96,7 @@ export default class MainPage extends Component {
                     'section',
                     {
                         attr: {
-                            class: 'chatlist-Header',
+                            class: 'chatlist-header',
                         },
                         class_setting_list: props.class_setting_list,
                         class_search: props.class_search,
@@ -148,8 +123,8 @@ export default class MainPage extends Component {
                         events: {
                             click: (e: Event) => {
 
-                                document.getElementById('wrap-chat-null')!.style.display = 'none';
-                                document.getElementById('wrap-right-id')!.style.display = 'flex';
+                                (document.getElementById('wrap-chat-null') as HTMLElement).style.display = 'none';
+                                (document.getElementById('wrap-right-id') as HTMLElement).style.display = 'flex';
                                 e.preventDefault();
                                 e.stopPropagation();
                             }
@@ -306,8 +281,8 @@ export default class MainPage extends Component {
                             'textarea',
                             {
                                 attr: {
-                                    class: 'msg_textarea',
-                                    name: 'area_msg',
+                                    class: 'message',
+                                    name: 'message',
                                     type: 'text',
                                     placeholder: 'Сообщение...',
                                     maxLength: '255',
@@ -324,10 +299,9 @@ export default class MainPage extends Component {
             }
         );
 
-
         super(tag, props);
 
-    };
+    }
 
     protected render(): DocumentFragment {
         return this.compile(tpl);

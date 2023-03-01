@@ -1,29 +1,29 @@
 const tpl = `
 
-    <div class="editProfile-window">
-        <div class="editProfile-blockMain">
-            <div class="editProfile-titleBlock">
-                <div class="editProfile-backAarrow">
+    <div class="edit-profile-window">
+        <div class="edit-profile-block-main">
+            <div class="edit-profile-title-block">
+                <div class="edit-profile-back-arrow">
                     <i class="icono-arrow1-right"></i>
                 </div>
-                <h1 id="editProfile-title">{{ title }}</h1>
+                <h1 id="edit-profile-title">{{ title }}</h1>
             </div>
 
-            <div class="editProfile-avaBlock">
-                <div class="editProfile-avatar"></div>
-                <span class="avaBlock-btn-upload-img"></span>
-                <span class="editProfile-login">{{ login }}</span>
+            <div class="edit-profile-ava-block">
+                <div class="edit-profile-avatar"></div>
+                <span class="ava-block-btn-upload-img"></span>
+                <span class="edit-profile-login">{{ login }}</span>
             </div>
 
             {{{ formMain }}}
         </div>
-        <div class="editProfile-blockSlave">
+        <div class="edit-profile-block-slave">
             {{{ formSlave }}}
         </div>
-        <div class="editProfile-btn-passwordChange">
+        <div class="edit-profile-btn-password-change">
 
             <a>
-                <span class="editProfile-changePwd-btn">
+                <span class="edit-profile-change-pwd-btn">
                     {{{ button }}}
                 </span>
             </a>

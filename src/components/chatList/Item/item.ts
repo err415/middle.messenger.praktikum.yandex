@@ -8,10 +8,10 @@ export default class Item extends Component {
     }
 
     protected removeEvents() {
-        this.element!.querySelectorAll('article').forEach(item => {
+        (this.element as HTMLElement).querySelectorAll('article').forEach(item => {
                 if (this.props.events != undefined) {
                     Object.entries(this.props.events).forEach(([key, value]) => {
-                        item.removeEventListener(key, value as any);
+                        item.removeEventListener(key, value as () => void);
 
                     });
                 }
@@ -21,11 +21,11 @@ export default class Item extends Component {
     }
 
     protected addEvents() {
-        this.element!.querySelectorAll('article').forEach(item => {
+        (this.element as HTMLElement).querySelectorAll('article').forEach(item => {
 
                 if (this.props.events != undefined) {
                     Object.entries(this.props.events).forEach(([key, value]) => {
-                        item.addEventListener(key, value as any);
+                        item.addEventListener(key, value as () => void);
 
                     });
                 }

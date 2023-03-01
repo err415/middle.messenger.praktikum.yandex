@@ -7,7 +7,7 @@ import {isValid} from "../../../utils/validate";
 
 
 export default class SigninConfirmPage extends Component {
-    constructor(tag: string = 'div', props: any = {}) {
+    constructor(tag = 'div', props: Record<string, unknown> = {}) {
         tag = 'section';
         props['attr'] = {
             class: 'signin-wrapper',
@@ -50,7 +50,14 @@ export default class SigninConfirmPage extends Component {
                         e.preventDefault();
                         e.stopPropagation();
                     },
-                    keyup: (e: Event) => {
+                    focus: (e: Event) => {
+
+                        const name = (<HTMLInputElement>e.target).getAttribute('name');
+                        const value = (<HTMLInputElement>e.target).value;
+
+                        isValid(name, value);
+                    },
+                    blur: (e: Event) => {
 
                         const name = (<HTMLInputElement>e.target).getAttribute('name');
                         const value = (<HTMLInputElement>e.target).value;
@@ -70,8 +77,7 @@ export default class SigninConfirmPage extends Component {
 
 
         super( tag, props );
-    };
-
+    }
     protected render (): DocumentFragment {
         return this.compile(tpl);
     }

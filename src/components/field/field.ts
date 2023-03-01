@@ -7,20 +7,20 @@ export class Field extends Component {
         return this.compile(tpl);
     }
     protected removeEvents() {
-        this.element!.querySelectorAll('label').forEach(l => {
+        (this.element as HTMLElement).querySelectorAll('label').forEach(l => {
             if (this.props.events != undefined){
                 Object.entries(this.props.events).forEach(([ key, value ]) => {
 
-                    l.removeEventListener(key, value as any);
+                    l.removeEventListener(key, value as () => void);
 
                 });
             }
         });
-        this.element!.querySelectorAll('input').forEach(input => {
+        (this.element as HTMLElement).querySelectorAll('input').forEach(input => {
             if (this.props.events != undefined){
                 Object.entries(this.props.events).forEach(([ key, value ]) => {
 
-                    input.removeEventListener(key, value as any);
+                    input.removeEventListener(key, value as () => void);
 
                 });
             }
@@ -29,20 +29,20 @@ export class Field extends Component {
     }
 
     protected addEvents() {
-        this.element!.querySelectorAll('label').forEach(l => {
+        (this.element as HTMLElement).querySelectorAll('label').forEach(l => {
             if (this.props.events != undefined){
                 Object.entries(this.props.events).forEach(([ key, value ]) => {
 
-                    l.addEventListener(key, value as any);
+                    l.addEventListener(key, value as () => void);
 
                 });
             }
         });
-        this.element!.querySelectorAll('input').forEach(input => {
+        (this.element as HTMLElement).querySelectorAll('input').forEach(input => {
             if (this.props.events != undefined){
                 Object.entries(this.props.events).forEach(([ key, value ]) => {
 
-                    input.addEventListener(key, value as any);
+                    input.addEventListener(key, value as () => void);
 
                 });
             }

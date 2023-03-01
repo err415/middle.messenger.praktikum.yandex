@@ -8,12 +8,12 @@ export default class Form extends Component {
     }
 
     protected removeEvents() {
-        this.element!.querySelectorAll('a').forEach(a => {
+        (this.element as HTMLElement).querySelectorAll('a').forEach(a => {
 
             //Проверяем, пришли ли ивенты, если да - разбираем их и добавляем обработчик.
             if(this.props.events !=undefined) {
                 Object.entries(this.props.events).forEach(([key, value]) => {
-                    a.removeEventListener(key, value as any);
+                    a.removeEventListener(key, value as () => void);
 
                 });
             }
@@ -22,12 +22,12 @@ export default class Form extends Component {
     }
 
     addEvents() {
-        this.element!.querySelectorAll('a').forEach(a => {
+        (this.element as HTMLElement).querySelectorAll('a').forEach(a => {
 
             //Проверяем, пришли ли ивенты, если да - разбираем их и добавляем обработчик.
             if(this.props.events !=undefined) {
                 Object.entries(this.props.events).forEach(([key, value]) => {
-                    a.addEventListener(key, value as any);
+                    a.addEventListener(key, value as () => void);
 
                 });
             }

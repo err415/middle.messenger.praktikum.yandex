@@ -10,7 +10,7 @@ import {
 
 export default class SignupPage extends Component {
 
-    constructor(tag: string = 'div', props: any = {}) {
+    constructor(tag = 'div', props: Record<string, unknown> = {}) {
         tag = 'section';
         props['attr'] = {
             class: 'signup-wrapper',
@@ -23,15 +23,13 @@ export default class SignupPage extends Component {
                 label: 'Зарегистрироваться',
                 events: {
                     click: (e: Event) => {
-                        console.log('Регистрация click');
-
 
                         e.preventDefault();
                         const formEl = document.getElementsByClassName('signup-form')[0];
                         const formIn = document.getElementsByClassName('input-signup');
                         const formData  = new FormData(formEl as HTMLFormElement);
                         const first_name = formData.get('first_name');
-                        const last_name = formData.get('last_name');
+                        const second_name = formData.get('last_name');
                         const login = formData.get('login');
                         const email = formData.get('email');
                         const phone = formData.get('phone');
@@ -39,7 +37,7 @@ export default class SignupPage extends Component {
                         const password_verify = formData.get('password_verify');
 
                         console.log('Имя: ' + first_name ,
-                            ' Фамилия: ' + last_name,
+                            ' Фамилия: ' + second_name,
                             ' Логин: ' + login,
                             ' E-mail: ' + email,
                             ' Телефон: ' + phone,
@@ -87,7 +85,7 @@ export default class SignupPage extends Component {
                         label_for: 'last_name',
                         label_value: 'Введите вашу Фамилию:',
                         input_class: 'input-signup',
-                        input_name: 'last_name',
+                        input_name: 'second_name',
                         input_type: 'text',
                         class_validate_err: 'valid-err--msg',
                         valid_error: 'Кол-во символов > 3 и буквы: [A-Z, a-z]',
@@ -161,16 +159,23 @@ export default class SignupPage extends Component {
                         e.preventDefault();
                         e.stopPropagation();
                     },
-                    keyup: (e: Event) => {
+                    focus: (e: Event) => {
 
                         const name = (<HTMLInputElement>e.target).getAttribute('name');
                         const value = (<HTMLInputElement>e.target).value;
 
                         isValid(name, value);
-                    }
+                    },
+                    blur: (e: Event) => {
+
+                        const name = (<HTMLInputElement>e.target).getAttribute('name');
+                        const value = (<HTMLInputElement>e.target).value;
+
+                        isValid(name, value);
+                    },
                 },
                 attr: {
-                    class: 'mainField',
+                    class: 'main-field',
 
                 }
             }
@@ -179,7 +184,7 @@ export default class SignupPage extends Component {
 
 
         super( tag, props );
-    };
+    }
 
     protected render (): DocumentFragment {
         return this.compile(tpl);

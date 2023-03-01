@@ -6,11 +6,11 @@ export class Button extends Component {
 		return this.compile(tpl);
 	}
 	protected removeEvents() {
-		this.element!.querySelectorAll('button').forEach(b => {
+		(this.element as HTMLElement).querySelectorAll('button').forEach(b => {
 			if (this.props.events != undefined){
 				Object.entries(this.props.events).forEach(([ key, value ]) => {
 
-					b.removeEventListener(key, value as any);
+					b.removeEventListener(key, value as () => void);
 
 				});
 			}
@@ -19,11 +19,11 @@ export class Button extends Component {
 	}
 
 	protected addEvents() {
-		this.element!.querySelectorAll('button').forEach(b => {
+		(this.element as HTMLElement).querySelectorAll('button').forEach(b => {
 			if (this.props.events != undefined){
 				Object.entries(this.props.events).forEach(([ key, value ]) => {
 
-						b.addEventListener(key, value as any);
+						b.addEventListener(key, value as () => void);
 
 				});
 			}

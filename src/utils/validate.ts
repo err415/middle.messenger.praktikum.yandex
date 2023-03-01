@@ -1,13 +1,7 @@
-export function isValidFirstName(value: string | null): boolean {
-    if (value!.length < 4) {
-        document.getElementsByClassName('valid-err--msg')[0].classList.add('view');
+export function isValidFirstName(value: string): boolean {
 
-
-        return false;
-    } else {
-        document.getElementsByClassName('valid-err--msg')[0].classList.remove('view');
-        let nameRegex = /^[a-zA-Z\\-]+$/;
-        let validFirstName = value!.match(nameRegex);
+        const nameRegex = /^[a-zA-Z\\-]+$/;
+        const validFirstName = value.match(nameRegex);
         if (validFirstName === null) {
             document.getElementsByClassName('valid-err--msg')[0].classList.add('view');
 
@@ -16,19 +10,11 @@ export function isValidFirstName(value: string | null): boolean {
             document.getElementsByClassName('valid-err--msg')[0].classList.remove('view');
             return true;
         }
-    }
-
 }
+export function isValidLastName(value: string): boolean {
 
-export function isValidLastName(value: string | null): boolean {
-    if (value!.length < 4) {
-        document.getElementsByClassName('valid-err--msg')[1].classList.add('view');
-
-        return false;
-    } else {
-        document.getElementsByClassName('valid-err--msg')[1].classList.remove('view');
-        let nameRegex = /^[a-zA-Z\\-]+$/;
-        let validLastName = value!.match(nameRegex);
+        const nameRegex = /^[a-zA-Z\\-]+$/;
+        const validLastName = value.match(nameRegex);
         if (validLastName === null) {
             document.getElementsByClassName('valid-err--msg')[1].classList.add('view');
 
@@ -37,19 +23,18 @@ export function isValidLastName(value: string | null): boolean {
             document.getElementsByClassName('valid-err--msg')[1].classList.remove('view');
             return true;
         }
-    }
 }
 
-export function isValidlogin(value: string | null): boolean {
-    if (value!.length < 5) {
+export function isValidlogin(value: string): boolean {
+    if (value.length < 4 && value.length > 20) {
         document.getElementsByClassName('valid-err--msg')[2].classList.add('view');
 
         return false;
     } else {
         document.getElementsByClassName('valid-err--msg')[2].classList.remove('view');
-        let nameRegex = /^[a-zA-Z0-9\\-]+$/;
+        const nameRegex = /^[a-zA-Z0-9\\-]+$/;
 
-        if (value!.match(nameRegex) === null) {
+        if (value.match(nameRegex) === null) {
             document.getElementsByClassName('valid-err--msg')[2].classList.add('view');
             //document.getElementById(id as string)!.classList.add('view');
             return false;
@@ -60,15 +45,15 @@ export function isValidlogin(value: string | null): boolean {
     }
 }
 
-export function isValidEmail(value: string | null): boolean {
-    if (value!.length < 1) {
+export function isValidEmail(value: string): boolean {
+    if (value.length < 1) {
         document.getElementsByClassName('valid-err--msg')[3].classList.add('view');
 
         return false;
     } else {
         document.getElementsByClassName('valid-err--msg')[3].classList.remove('view');
-        let nameRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
-        let validEmail = value!.match(nameRegex);
+        const nameRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+        const validEmail = value.match(nameRegex);
         if (validEmail === null) {
             document.getElementsByClassName('valid-err--msg')[3].classList.add('view');
             //document.getElementById(id as string)!.classList.add('view');
@@ -80,8 +65,8 @@ export function isValidEmail(value: string | null): boolean {
     }
 }
 
-export function isValidSignIn(value: string | null): boolean {
-    if (value!.length < 1) {
+export function isValidSignIn(value: string): boolean {
+    if (value.length < 8 && value.length > 40) {
 
         document.getElementsByClassName('valid-err--msg')[0].classList.add('view');
         return false;
@@ -89,8 +74,8 @@ export function isValidSignIn(value: string | null): boolean {
     } else {
         document.getElementsByClassName('valid-err--msg')[0].classList.remove('view');
 
-        let nameRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
-        let validEmail = value!.match(nameRegex);
+        const nameRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+        const validEmail = value.match(nameRegex);
 
         if (validEmail === null) {
             document.getElementsByClassName('valid-err--msg')[0].classList.add('view');
@@ -102,28 +87,36 @@ export function isValidSignIn(value: string | null): boolean {
         }
     }
 }
-export function isValidSignInPassword(value: string | null): boolean {
-    let nameRegex = /^.*(?=.{8,})(?=.*[a-zA-Z])(?=.*\d)(?=.*[!#$%&? "]).*$/;
-    let validPass = value!.match(nameRegex);
-    if (validPass === null) {
-        console.log('false')
+export function isValidSignInPassword(value: string): boolean {
+    if (value.length < 8 && value.length > 40) {
+
         document.getElementsByClassName('valid-err--msg')[0].classList.add('view');
         return false;
+
     } else {
-        console.log('true')
         document.getElementsByClassName('valid-err--msg')[0].classList.remove('view');
-        return true;
+        const nameRegex = /^.*(?=.{8,})(?=.*[a-zA-Z])(?=.*\d)(?=.*[!#$%&? "]).*$/;
+        const validPass = value.match(nameRegex);
+        if (validPass === null) {
+            console.log('false')
+            document.getElementsByClassName('valid-err--msg')[0].classList.add('view');
+            return false;
+        } else {
+            console.log('true')
+            document.getElementsByClassName('valid-err--msg')[0].classList.remove('view');
+            return true;
+        }
     }
 }
 
-export function isValidPhone(value: string | null): boolean {
-    if (value!.length < 11) {
+export function isValidPhone(value: string): boolean {
+    if (value.length < 10 && value.length > 15) {
         document.getElementsByClassName('valid-err--msg')[4].classList.add('view');
         return false;
     } else {
         document.getElementsByClassName('valid-err--msg')[4].classList.remove('view');
-        let nameRegex = /^(\+7|7|8)?[\s\-]?\(?[489][0-9]{2}\)?[\s\-]?[0-9]{3}[\s\-]?[0-9]{2}[\s\-]?[0-9]{2}$/;
-        let validPhone = value!.match(nameRegex);
+        const nameRegex = /^(\+7|7|8)?[\s-]?\(?[489][0-9]{2}\)?[\s-]?[0-9]{3}[\s-]?[0-9]{2}[\s-]?[0-9]{2}$/;
+        const validPhone = value.match(nameRegex);
         if (validPhone === null) {
             document.getElementsByClassName('valid-err--msg')[4].classList.add('view');
             return false;
@@ -135,9 +128,9 @@ export function isValidPhone(value: string | null): boolean {
     }
 }
 
-export function isValidPass(value: string | null): boolean {
-    let nameRegex = /^.*(?=.{8,})(?=.*[a-zA-Z])(?=.*\d)(?=.*[!#$%&? "]).*$/;
-    let validPass = value!.match(nameRegex);
+export function isValidPass(value: string): boolean {
+    const nameRegex = /^.*(?=.{8,})(?=.*[a-zA-Z])(?=.*\d)(?=.*[!#$%&? "]).*$/;
+    const validPass = value.match(nameRegex);
     if (validPass === null) {
         document.getElementsByClassName('valid-err--msg')[5].classList.add('view');
         return false;
@@ -147,7 +140,7 @@ export function isValidPass(value: string | null): boolean {
     }
 }
 
-export function isValidConfigPass(value: string | null): boolean {
+export function isValidConfigPass(value: string): boolean {
     const confirm = (document.getElementsByName('password')[0] as HTMLInputElement).value;
 
     if (value !== confirm) {
@@ -160,7 +153,7 @@ export function isValidConfigPass(value: string | null): boolean {
     }
 }
 
-export function isValid(name: string | null, value: string | null) {
+export function isValid(name: string | null, value: string) {
     switch (name) {
         case 'first_name':
             return isValidFirstName(value);
