@@ -5,7 +5,7 @@ export default class Chat extends Component {
 
 
     protected render(): DocumentFragment {
-        console.log('ChatWindow render');
+
         return this.compile(tpl);
     };
 

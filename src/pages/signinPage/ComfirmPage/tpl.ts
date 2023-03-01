@@ -5,6 +5,7 @@ const tpl = `
 
     <form class="pass-form" action="/main">
         {{{ input }}}
+        <span  id="{{ class_validate_err }}" class="{{ class_validate_err }}">{{ valid_error }}</span>
 
         <a href="/main">{{{ button }}}</a>
     </form>

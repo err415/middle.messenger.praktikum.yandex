@@ -2,7 +2,7 @@ import tpl from './tpl';
 import Component from "../../services/Component";
 import { Button } from "../../components/button/button";
 import {Input} from "../../components/input/input";
-import {isValid, isValidSignIn} from "../../utils/validate";
+import {isValid} from "../../utils/validate";
 
 
 
@@ -22,14 +22,12 @@ export default class SigninPage extends Component {
                 events: {
                     click: (e: Event) => {
 
-
                         const formEl = document.getElementsByClassName('signin-form')[0];
                         const name = document.getElementsByClassName('input-signin')[0].getAttribute('name')
                         const formData  = new FormData(formEl as HTMLFormElement);
                         const value = formData.get('signin_email');
-                        console.log(name, value as string);
-                        console.log(isValidSignIn(value as string));
-                        if (isValidSignIn(value as string)) {
+
+                        if (isValid(name as string, value as string)) {
                             window.location.href = '/signin-pass';
                         }
                         e.preventDefault();
@@ -48,17 +46,14 @@ export default class SigninPage extends Component {
             {
                 events: {
                     click: (e: Event) => {
-                        console.log('Input click');
-                        //document.location = '/signin-pass';
+
                         e.preventDefault();
                         e.stopPropagation();
                     },
                     keyup: (e: Event) => {
-                        //const id = (<HTMLInputElement>e.target).getAttribute('id');
+
                         const name = (<HTMLInputElement>e.target).getAttribute('name');
                         const value = (<HTMLInputElement>e.target).value;
-                        console.log((<HTMLInputElement>e.target).getAttribute('name'));
-                        console.log((<HTMLInputElement>e.target).value);
 
                         isValid(name, value);
                     }
@@ -76,7 +71,7 @@ export default class SigninPage extends Component {
     };
 
      render () : DocumentFragment {
-        console.log('SigninPage render');
+
         return this.compile(tpl);
     }
 }

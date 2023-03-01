@@ -19,7 +19,7 @@ export default class WelcomePage extends Component<WelcomePageProps> {
                 label: 'Войти',
                 events: {
                     click: (e: Event) => {
-                        console.log('Нажали кнопочку');
+
                         window.location.href = '/signin';
                         e.preventDefault();
                         e.stopPropagation();
@@ -35,7 +35,7 @@ export default class WelcomePage extends Component<WelcomePageProps> {
     super( tag, props );
     };
     render() : DocumentFragment {
-        console.log('welcomePage render');
+
         return this.compile(tpl);
     }
 }

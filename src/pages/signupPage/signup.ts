@@ -3,13 +3,7 @@ import Component from "../../services/Component";
 import { Button } from "../../components/button/button";
 import {Field} from "../../components/field/field";
 import {
-    isValid,
-    isValidEmail,
-    isValidFirstName,
-    isValidLastName,
-    isValidlogin,
-    isValidPass,
-    isValidPhone
+    isValid
 } from '../../utils/validate';
 
 
@@ -31,9 +25,10 @@ export default class SignupPage extends Component {
                     click: (e: Event) => {
                         console.log('Регистрация click');
 
-                        //window.location.href = '/signin';
+
                         e.preventDefault();
                         const formEl = document.getElementsByClassName('signup-form')[0];
+                        const formIn = document.getElementsByClassName('input-signup');
                         const formData  = new FormData(formEl as HTMLFormElement);
                         const first_name = formData.get('first_name');
                         const last_name = formData.get('last_name');
@@ -42,13 +37,7 @@ export default class SignupPage extends Component {
                         const phone = formData.get('phone');
                         const password = formData.get('password');
                         const password_verify = formData.get('password_verify');
-                        console.log(isValidFirstName(first_name as string));
-                        console.log(isValidLastName(last_name as string));
-                        console.log(isValidlogin(login as string));
-                        console.log(isValidEmail(email as string));
-                        console.log(isValidPhone(phone as string));
-                        console.log(isValidPass(password as string));
-                        console.log(isValidPass(password_verify as string));
+
                         console.log('Имя: ' + first_name ,
                             ' Фамилия: ' + last_name,
                             ' Логин: ' + login,
@@ -57,6 +46,12 @@ export default class SignupPage extends Component {
                             ' Пароль: ' + password,
                             ' Подтверждение пароля: ' + password_verify);
 
+                        Object.values(formIn).forEach((value) => {
+
+                            isValid(value.getAttribute('name'),(value as HTMLInputElement).value);
+
+                        });
+                        window.location.href = '/signin';
                         e.stopPropagation();
 
                     },
@@ -119,7 +114,7 @@ export default class SignupPage extends Component {
                         input_name: 'email',
                         input_type: 'email',
                         class_validate_err: 'valid-err--msg',
-                        valid_error: '[A-Z, a-z]',
+                        valid_error: 'Введен некорректный E-mail адрес',
                     },
                     {
                         input_id: 4,
@@ -131,7 +126,7 @@ export default class SignupPage extends Component {
                         input_name: 'phone',
                         input_type: 'text',
                         class_validate_err: 'valid-err--msg',
-                        valid_error: '[A-Z, a-z]',
+                        valid_error: 'Введен некорректный номер телефона',
                     },
                     {
                         input_id: 5,
@@ -143,7 +138,7 @@ export default class SignupPage extends Component {
                         input_name: 'password',
                         input_type: 'password',
                         class_validate_err: 'valid-err--msg',
-                        valid_error: '[A-Z, a-z]',
+                        valid_error: 'допустимые символы [a-z, A-Z, ! # $ % & ? "]',
                     },
                     {
                         input_id: 6,
@@ -162,17 +157,15 @@ export default class SignupPage extends Component {
                 ],
                 events: {
                     click: (e: Event) => {
-                        console.log('Label click');
-                        //window.location.href = '/signin';
+
                         e.preventDefault();
                         e.stopPropagation();
                     },
                     keyup: (e: Event) => {
-                        //const id = (<HTMLInputElement>e.target).getAttribute('id');
+
                         const name = (<HTMLInputElement>e.target).getAttribute('name');
                         const value = (<HTMLInputElement>e.target).value;
-                        console.log((<HTMLInputElement>e.target).getAttribute('name'));
-                        console.log((<HTMLInputElement>e.target).value);
+
                         isValid(name, value);
                     }
                 },

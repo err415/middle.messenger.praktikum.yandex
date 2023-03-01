@@ -18,7 +18,7 @@ export default class ProfilePage extends Component {
                 label: 'Сменить пароль',
                 events: {
                     click: (e: Event) => {
-                        console.log('Profile click');
+
                         e.preventDefault();
                         e.stopPropagation();
                     }
@@ -96,8 +96,8 @@ export default class ProfilePage extends Component {
 
                 events: {
                     click: (e: Event) => {
-                        console.log('Input click');
-                        //document.location = '/signin-pass';
+
+
                         e.preventDefault();
                         e.stopPropagation();
                     }
@@ -147,8 +147,7 @@ export default class ProfilePage extends Component {
 
                 events: {
                     click: (e: Event) => {
-                        console.log('Input click');
-                        //document.location = '/signin-pass';
+
                         e.preventDefault();
                         e.stopPropagation();
                     }
@@ -159,8 +158,6 @@ export default class ProfilePage extends Component {
                 },
             }
         );
-
-
 
         super( tag, props );
     };

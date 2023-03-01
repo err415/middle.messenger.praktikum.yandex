@@ -102,6 +102,19 @@ export function isValidSignIn(value: string | null): boolean {
         }
     }
 }
+export function isValidSignInPassword(value: string | null): boolean {
+    let nameRegex = /^.*(?=.{8,})(?=.*[a-zA-Z])(?=.*\d)(?=.*[!#$%&? "]).*$/;
+    let validPass = value!.match(nameRegex);
+    if (validPass === null) {
+        console.log('false')
+        document.getElementsByClassName('valid-err--msg')[0].classList.add('view');
+        return false;
+    } else {
+        console.log('true')
+        document.getElementsByClassName('valid-err--msg')[0].classList.remove('view');
+        return true;
+    }
+}
 
 export function isValidPhone(value: string | null): boolean {
     if (value!.length < 11) {
@@ -150,29 +163,32 @@ export function isValidConfigPass(value: string | null): boolean {
 export function isValid(name: string | null, value: string | null) {
     switch (name) {
         case 'first_name':
-            isValidFirstName(value);
-            break;
+            return isValidFirstName(value);
+
         case 'last_name':
-            isValidLastName(value);
-            break;
+            return  isValidLastName(value);
+
         case 'login':
-            isValidlogin(value);
-            break;
+            return isValidlogin(value);
+
         case 'email':
-            isValidEmail(value);
-            break;
+            return isValidEmail(value);
+
         case 'phone':
-            isValidPhone(value);
-            break;
+            return isValidPhone(value);
+
         case 'password':
-            isValidPass(value);
-            break;
+            return isValidPass(value);
+
         case 'password_verify':
-            isValidConfigPass(value);
-            break;
+            return isValidConfigPass(value);
+
         case 'signin_email':
-            isValidSignIn(value);
-            break;
+            return isValidSignIn(value);
+
+        case 'signin_pass':
+            return isValidSignInPassword(value);
+
         default:
             return false;
     }
