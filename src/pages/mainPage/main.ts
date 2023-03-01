@@ -10,6 +10,7 @@ import Chat from "../../components/chat/chat";
 import chatBody from "../../components/chat/chatBody/chatBody";
 import chatFooter from "../../components/chat/chatFooter/chatFooter";
 import Message from "../../components/chat/message/message";
+import img from '../../assets/img/slets.jpg';
 
 
 
@@ -95,14 +96,18 @@ export default class MainPage extends Component {
         props.class_item_msgCount = 'chatList_item_msgCount';
         props.renderchat = false;
         props.class_message_block = 'message_block';
-
         props.class_section_msg = 'message';
         props.class_msg_date = 'msg--date';
         props.class_msg = 'msg';
         props.class_msg_me = 'msg--me';
-        props.class_msg_them = 'msg--them'
+        //props.class_msg_them = 'msg--them'
         props.msg_me = 'Привет, как ты?';
-        props.msg_them = 'Нормас';
+        //props.msg_them = 'Нормас';
+        props.isAttach_me = true;
+        props.isAttach_them = false;
+        props.class_img_attach = 'img-attach-me';
+        props.src_img_attach = img;
+        props.alt_img_attach = 'img-attach';
 
 
         props['chatList'] = new ChatList(
@@ -272,8 +277,15 @@ export default class MainPage extends Component {
                                             class_msg: props.class_msg,
                                             class_msg_me: props.class_msg_me,
                                             msg_me: props.msg_me,
+                                            isAttach_me: props.isAttach_me,
+                                            class_img_attach: props.class_img_attach,
+                                            src_img_attach: props.src_img_attach,
+                                            alt_img_attach: props.alt_img_attach,
                                             class_msg_them: props.class_msg_them,
                                             msg_them: props.msg_them,
+                                            isAttach_them: props.isAttach_them,
+
+
                                         },
 
 

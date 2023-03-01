@@ -16,7 +16,18 @@ export class Field extends Component {
                 });
             }
         });
+        this.element!.querySelectorAll('input').forEach(input => {
+            if (this.props.events != undefined){
+                Object.entries(this.props.events).forEach(([ key, value ]) => {
+
+                    input.addEventListener(key, value as any);
+                    console.log('Label click');
+                });
+            }
+        });
         super.addEvents();
     }
+
+
 }
 

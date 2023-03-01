@@ -2,6 +2,7 @@ import tpl from './tpl';
 import Component from "../../services/Component";
 import { Button } from "../../components/button/button";
 import {Input} from "../../components/input/input";
+import {isValid, isValidSignIn} from "../../utils/validate";
 
 
 
@@ -12,14 +13,25 @@ export default class SigninPage extends Component {
           class: 'signin-wrapper',
         };
         props.title = 'Авторизация';
+        props.class_validate_err = 'valid-err--msg';
+        props.valid_error = 'Введите корректный e-mail';
         props['button'] = new Button(
           'button',
             {
                 label: 'ДАЛЕЕ',
                 events: {
                     click: (e: Event) => {
-                        console.log('Авторизация click');
-                        document.location = '/signin-pass';
+
+
+                        const formEl = document.getElementsByClassName('signin-form')[0];
+                        const name = document.getElementsByClassName('input-signin')[0].getAttribute('name')
+                        const formData  = new FormData(formEl as HTMLFormElement);
+                        const value = formData.get('signin_email');
+                        console.log(name, value as string);
+                        console.log(isValidSignIn(value as string));
+                        if (isValidSignIn(value as string)) {
+                            window.location.href = '/signin-pass';
+                        }
                         e.preventDefault();
                         e.stopPropagation();
                     }
@@ -27,6 +39,7 @@ export default class SigninPage extends Component {
                 attr: {
                   class: 'button',
                   id: 'welcomePage-btn',
+                  type: 'submit',
                 },
             }
         );
@@ -39,10 +52,21 @@ export default class SigninPage extends Component {
                         //document.location = '/signin-pass';
                         e.preventDefault();
                         e.stopPropagation();
+                    },
+                    keyup: (e: Event) => {
+                        //const id = (<HTMLInputElement>e.target).getAttribute('id');
+                        const name = (<HTMLInputElement>e.target).getAttribute('name');
+                        const value = (<HTMLInputElement>e.target).value;
+                        console.log((<HTMLInputElement>e.target).getAttribute('name'));
+                        console.log((<HTMLInputElement>e.target).value);
+
+                        isValid(name, value);
                     }
+
                 },
                 attr: {
                     class: 'input-signin',
+                    name: 'signin_email',
                     type: 'email',
                     placeholder: 'Введите ваш E-mail',
                 },
