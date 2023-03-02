@@ -1,7 +1,9 @@
 import Component from '../../../services/Component';
 import tpl from './tpl';
 
-export default class ListHeader extends Component {
+type Props<P extends Record<string, unknown> = any> = { events?: Record<string, () => void> } & P;
+
+export default class ListHeader extends Component<Props> {
 
     render(): DocumentFragment {
 
@@ -9,12 +11,12 @@ export default class ListHeader extends Component {
     }
 
     protected removeEvents() {
-        (this.element as HTMLElement).querySelectorAll('input').forEach(i => {
+        (this.element as Props).querySelectorAll('input').forEach((i: Props) => {
 
             //Проверяем, пришли ли ивенты, если да - разбираем их и добавляем обработчик.
             if(this.props.events !=undefined) {
                 Object.entries(this.props.events).forEach(([key, value]) => {
-                    i.removeEventListener(key, value as () => void);
+                    i.removeEventListener(key, value as Props);
 
 
                 });
@@ -24,12 +26,12 @@ export default class ListHeader extends Component {
     }
 
     addEvents() {
-        (this.element as HTMLElement).querySelectorAll('input').forEach(i => {
+        (this.element as Props).querySelectorAll('input').forEach((i: Props) => {
 
             //Проверяем, пришли ли ивенты, если да - разбираем их и добавляем обработчик.
             if(this.props.events !=undefined) {
                 Object.entries(this.props.events).forEach(([key, value]) => {
-                    i.addEventListener(key, value as () => void);
+                    i.addEventListener(key, value as Props);
 
                 });
             }

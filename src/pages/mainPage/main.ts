@@ -12,12 +12,11 @@ import chatFooter from "../../components/chat/chatFooter/chatFooter";
 import Message from "../../components/chat/message/message";
 import img from '../../assets/img/slets.jpg';
 
+type Props<P extends Record<string, unknown> = any> = { events?: Record<string, () => void> } & P;
 
+export default class MainPage extends Component<Props> {
 
-export default class MainPage extends Component {
-
-
-    constructor(tag = 'div', props: Record<string, unknown> = {}) {
+    constructor(tag = 'div', props: Props = {}) {
 
         tag = 'section';
         props['attr'] = {
@@ -121,7 +120,7 @@ export default class MainPage extends Component {
                             class: 'chatlist-item-list',
                         },
                         events: {
-                            click: (e: Event) => {
+                            click: (e: Props) => {
 
                                 (document.getElementById('wrap-chat-null') as HTMLElement).style.display = 'none';
                                 (document.getElementById('wrap-right-id') as HTMLElement).style.display = 'flex';
@@ -199,8 +198,6 @@ export default class MainPage extends Component {
                 )
             }
         );
-
-    console.log(props.renderchat)
 
         props['Chat'] = new Chat(
 

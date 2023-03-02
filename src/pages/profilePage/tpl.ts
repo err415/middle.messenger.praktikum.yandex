@@ -10,7 +10,9 @@ const tpl = `
             </div>
 
             <div class="edit-profile-ava-block">
-                <div class="edit-profile-avatar"></div>
+                <div class="edit-profile-avatar">
+                
+</div>
                 <span class="ava-block-btn-upload-img"></span>
                 <span class="edit-profile-login">{{ login }}</span>
             </div>

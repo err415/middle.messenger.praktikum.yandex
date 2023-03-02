@@ -1,7 +1,7 @@
 import Component from "../../../services/Component";
 import tpl from './tpl';
-
-export default class chatFooter extends Component {
+type Props<P extends Record<string, unknown> = any> = { events?: Record<string, () => void> } & P;
+export default class chatFooter extends Component<Props> {
 
     protected render(): DocumentFragment {
 

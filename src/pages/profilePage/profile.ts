@@ -3,10 +3,10 @@ import Component from "../../services/Component";
 import { Button } from "../../components/button/button";
 import Form from "../../components/form/form";
 
+type Props<P extends Record<string, unknown> = any> = { events?: Record<string, () => void> } & P;
 
-
-export default class ProfilePage extends Component {
-    constructor(tag = 'div', props: Record<string, unknown> = {}) {
+export default class ProfilePage extends Component<Props> {
+    constructor(tag = 'div', props: Props = {}) {
         tag = 'section';
         props['attr'] = {
             class: 'edit-profile-wrapper',
@@ -17,7 +17,7 @@ export default class ProfilePage extends Component {
             {
                 label: 'Сменить пароль',
                 events: {
-                    click: (e: Event) => {
+                    click: (e: Props) => {
 
                         e.preventDefault();
                         e.stopPropagation();
@@ -51,7 +51,7 @@ export default class ProfilePage extends Component {
 
                     },
                     {
-                        input_name: 'last_name',
+                        input_name: 'second_name',
                         class_inputEditProfile: 'input-edit-profile',
                         input_type: 'text',
                         input_placeholder: 'Фамилия (необязательно)'
@@ -65,7 +65,7 @@ export default class ProfilePage extends Component {
 
                     },
                     {
-                        input_name: 'e-mail',
+                        input_name: 'email',
                         class_inputEditProfile: 'input-edit-profile',
                         input_type: 'text',
                         input_placeholder: 'testtest@yandex.ru'
@@ -79,7 +79,7 @@ export default class ProfilePage extends Component {
 
                     },
                     {
-                        input_name: 'nickname',
+                        input_name: 'display_name',
                         class_inputEditProfile: 'input-edit-profile',
                         input_type: 'text',
                         input_placeholder: 'Фаина Раневская'
@@ -95,7 +95,7 @@ export default class ProfilePage extends Component {
                 ],
 
                 events: {
-                    click: (e: Event) => {
+                    click: (e: Props) => {
 
 
                         e.preventDefault();
@@ -146,7 +146,7 @@ export default class ProfilePage extends Component {
                 ],
 
                 events: {
-                    click: (e: Event) => {
+                    click: (e: Props) => {
 
                         e.preventDefault();
                         e.stopPropagation();

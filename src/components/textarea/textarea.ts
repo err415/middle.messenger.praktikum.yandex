@@ -1,18 +1,17 @@
 import tpl from './tpl';
 import Component from "../../services/Component";
-
-export class Textarea extends Component {
+type Props<P extends Record<string, unknown> = any> = { events?: Record<string, () => void> } & P;
+export class Textarea extends Component<Props> {
     protected render(): DocumentFragment {
-        console.log('Textarea render');
         return this.compile(tpl);
     }
 
     protected removeEvents() {
-        (this.element as HTMLElement).querySelectorAll('textarea').forEach(l => {
+        (this.element as Props).querySelectorAll('textarea').forEach((l: Props) => {
             if (this.props.events != undefined){
                 Object.entries(this.props.events).forEach(([ key, value ]) => {
 
-                    l.removeEventListener(key, value as () => void);
+                    l.removeEventListener(key, value as Props);
 
                 });
             }
@@ -21,11 +20,11 @@ export class Textarea extends Component {
     }
 
     protected addEvents() {
-        (this.element as HTMLElement).querySelectorAll('textarea').forEach(l => {
+        (this.element as Props).querySelectorAll('textarea').forEach((l: Props) => {
             if (this.props.events != undefined){
                 Object.entries(this.props.events).forEach(([ key, value ]) => {
 
-                    l.addEventListener(key, value as () => void);
+                    l.addEventListener(key, value as Props);
                 });
             }
         });

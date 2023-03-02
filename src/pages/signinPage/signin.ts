@@ -2,12 +2,12 @@ import tpl from './tpl';
 import Component from "../../services/Component";
 import { Button } from "../../components/button/button";
 import {Input} from "../../components/input/input";
-import {isValid} from "../../utils/validate";
+import {isValidSignIn} from "../../utils/validate";
 
+type Props<P extends Record<string, unknown> = any> = { events?: Record<string, () => void> } & P;
 
-
-export default class SigninPage extends Component {
-    constructor(tag = 'div', props: Record<string, unknown> = {}) {
+export default class SigninPage extends Component<Props> {
+    constructor(tag = 'div', props: Props = {}) {
         tag = 'section';
         props['attr'] = {
           class: 'signin-wrapper',
@@ -20,16 +20,15 @@ export default class SigninPage extends Component {
             {
                 label: 'ДАЛЕЕ',
                 events: {
-                    click: (e: Event) => {
+                    click: (e: Props) => {
 
-                        const formEl = document.getElementsByClassName('signin-form')[0];
-                        const name = document.getElementsByClassName('input-signin')[0].getAttribute('name')
-                        const formData  = new FormData(formEl as HTMLFormElement);
-                        const value = formData.get('signin_email');
+                        const formIn = document.getElementsByClassName('input-signin');
+                        Object.values(formIn).forEach(( value) => {
+                            if(isValidSignIn((value as Props).value)) {
+                                window.location.href = '/signin-pass';
+                            }
+                        });
 
-                        if (isValid(name as string, value as string)) {
-                            window.location.href = '/signin-pass';
-                        }
                         e.preventDefault();
                         e.stopPropagation();
                     }
@@ -45,31 +44,27 @@ export default class SigninPage extends Component {
           'input',
             {
                 events: {
-                    click: (e: Event) => {
+                    click: (e: Props) => {
 
                         e.preventDefault();
                         e.stopPropagation();
                     },
 
-                    focus: (e: Event) => {
+                    focus: (e: Props) => {
 
-                        const name = (<HTMLInputElement>e.target).getAttribute('name');
-                        const value = (<HTMLInputElement>e.target).value;
-
-                        isValid(name, value);
+                        const value = (<Props>e.target).value;
+                        isValidSignIn(value as Props);
                     },
-                    blur: (e: Event) => {
+                    blur: (e: Props) => {
 
-                        const name = (<HTMLInputElement>e.target).getAttribute('name');
-                        const value = (<HTMLInputElement>e.target).value;
-
-                        isValid(name, value);
+                        const value = (<Props>e.target).value;
+                        isValidSignIn(value as Props);
                     },
 
                 },
                 attr: {
                     class: 'input-signin',
-                    name: 'signin_email',
+                    name: 'email',
                     type: 'email',
                     placeholder: 'Введите ваш E-mail',
                 },

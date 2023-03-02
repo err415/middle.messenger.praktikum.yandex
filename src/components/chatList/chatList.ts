@@ -1,7 +1,7 @@
 import Component from '../../services/Component';
 import tpl from './tpl';
-
-export default class ChatList extends Component {
+type Props<P extends Record<string, unknown> = any> = { events?: Record<string, () => void> } & P;
+export default class ChatList extends Component<Props> {
 
     render(): DocumentFragment {
 
@@ -9,13 +9,13 @@ export default class ChatList extends Component {
     }
 
     protected removeEvents() {
-        (this.element as HTMLElement).querySelectorAll('div').forEach(div => {
+        (this.element as Props).querySelectorAll('div').forEach((div: Props) => {
 
             //Проверяем, пришли ли ивенты, если да - разбираем их и добавляем обработчик.
             if(this.props.events !=undefined) {
                 Object.entries(this.props.events).forEach(([key, value]) => {
 
-                    div.removeEventListener(key, value as () => void);
+                    div.removeEventListener(key, value as Props);
 
                 });
             }
@@ -24,14 +24,13 @@ export default class ChatList extends Component {
     }
 
     addEvents() {
-        (this.element as HTMLElement).querySelectorAll('div').forEach(div => {
+        (this.element as Props).querySelectorAll('div').forEach((div: Props) => {
 
             //Проверяем, пришли ли ивенты, если да - разбираем их и добавляем обработчик.
             if(this.props.events !=undefined) {
                 Object.entries(this.props.events).forEach(([key, value]) => {
 
-                    div.addEventListener(key, value as () => void);
-
+                    div.addEventListener(key, value as Props);
 
                 });
             }

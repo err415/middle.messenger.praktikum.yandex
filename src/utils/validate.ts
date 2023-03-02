@@ -46,6 +46,7 @@ export function isValidlogin(value: string): boolean {
 }
 
 export function isValidEmail(value: string): boolean {
+
     if (value.length < 1) {
         document.getElementsByClassName('valid-err--msg')[3].classList.add('view');
 
@@ -56,7 +57,7 @@ export function isValidEmail(value: string): boolean {
         const validEmail = value.match(nameRegex);
         if (validEmail === null) {
             document.getElementsByClassName('valid-err--msg')[3].classList.add('view');
-            //document.getElementById(id as string)!.classList.add('view');
+
             return false;
         } else {
             document.getElementsByClassName('valid-err--msg')[3].classList.remove('view');
@@ -78,10 +79,12 @@ export function isValidSignIn(value: string): boolean {
         const validEmail = value.match(nameRegex);
 
         if (validEmail === null) {
+
             document.getElementsByClassName('valid-err--msg')[0].classList.add('view');
-            //document.getElementById(id as string)!.classList.add('view');
             return false;
+
         } else {
+
             document.getElementsByClassName('valid-err--msg')[0].classList.remove('view');
             return true;
         }
@@ -158,7 +161,7 @@ export function isValid(name: string | null, value: string) {
         case 'first_name':
             return isValidFirstName(value);
 
-        case 'last_name':
+        case 'second_name':
             return  isValidLastName(value);
 
         case 'login':
@@ -172,9 +175,6 @@ export function isValid(name: string | null, value: string) {
 
         case 'password':
             return isValidPass(value);
-
-        case 'password_verify':
-            return isValidConfigPass(value);
 
         case 'signin_email':
             return isValidSignIn(value);

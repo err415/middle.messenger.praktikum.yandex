@@ -2,8 +2,10 @@ import tpl from './tpl';
 import Component from "../../services/Component";
 import { Button } from "../../components/button/button";
 
-export default class WelcomePage extends Component {
-    constructor(tag = 'div', props: Record<string, unknown> = {}) {
+type Props<P extends Record<string, unknown> = any> = { events?: Record<string, () => void> } & P;
+
+export default class WelcomePage extends Component<Props>{
+    constructor(tag = 'div', props: Props = {}) {
         tag = 'section';
         props['attr'] = {
             class: 'welcome-wrap',
@@ -14,7 +16,7 @@ export default class WelcomePage extends Component {
             {
                 label: 'Войти',
                 events: {
-                    click: (e: Event) => {
+                    click: (e: Props) => {
 
                         window.location.href = '/signin';
                         e.preventDefault();

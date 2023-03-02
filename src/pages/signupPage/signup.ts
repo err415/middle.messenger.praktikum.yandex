@@ -6,11 +6,11 @@ import {
     isValid
 } from '../../utils/validate';
 
+type Props<P extends Record<string, unknown> = any> = { events?: Record<string, () => void> } & P;
 
+export default class SignupPage extends Component<Props> {
 
-export default class SignupPage extends Component {
-
-    constructor(tag = 'div', props: Record<string, unknown> = {}) {
+    constructor(tag = 'div', props: Props = {}) {
         tag = 'section';
         props['attr'] = {
             class: 'signup-wrapper',
@@ -22,36 +22,38 @@ export default class SignupPage extends Component {
             {
                 label: 'Зарегистрироваться',
                 events: {
-                    click: (e: Event) => {
+                    click: (e: Props) => {
 
                         e.preventDefault();
                         const formEl = document.getElementsByClassName('signup-form')[0];
                         const formIn = document.getElementsByClassName('input-signup');
-                        const formData  = new FormData(formEl as HTMLFormElement);
+                        const formData  = new FormData(formEl as Props);
                         const first_name = formData.get('first_name');
                         const second_name = formData.get('last_name');
                         const login = formData.get('login');
                         const email = formData.get('email');
                         const phone = formData.get('phone');
                         const password = formData.get('password');
-                        const password_verify = formData.get('password_verify');
 
-                        console.log('Имя: ' + first_name ,
+
+                        console.log(
+                            'Имя: ' + first_name ,
                             ' Фамилия: ' + second_name,
                             ' Логин: ' + login,
                             ' E-mail: ' + email,
                             ' Телефон: ' + phone,
                             ' Пароль: ' + password,
-                            ' Подтверждение пароля: ' + password_verify);
+                           );
 
                         Object.values(formIn).forEach((value) => {
 
-                            isValid(value.getAttribute('name'),(value as HTMLInputElement).value);
+                            if(isValid(value.getAttribute('name'), (value as Props).value)){
+                                window.location.href = '/signin';
+                            }
 
                         });
-                        window.location.href = '/signin';
-                        e.stopPropagation();
 
+                        e.stopPropagation();
                     },
 
                 },
@@ -138,38 +140,26 @@ export default class SignupPage extends Component {
                         class_validate_err: 'valid-err--msg',
                         valid_error: 'допустимые символы [a-z, A-Z, ! # $ % & ? "]',
                     },
-                    {
-                        input_id: 6,
-                        class_wrap_fields: 'field',
-                        label_class: 'field-signup',
-                        label_for: 'password-verify',
-                        label_value: 'Повторите пароль:',
-                        input_class: 'input-signup',
-                        input_name: 'password_verify',
-                        input_type: 'password',
-                        class_validate_err: 'valid-err--msg',
-                        valid_error: 'Пароли не совпадают',
-                    },
 
 
                 ],
                 events: {
-                    click: (e: Event) => {
+                    click: (e: Props) => {
 
                         e.preventDefault();
                         e.stopPropagation();
                     },
-                    focus: (e: Event) => {
+                    focus: (e: Props) => {
 
-                        const name = (<HTMLInputElement>e.target).getAttribute('name');
-                        const value = (<HTMLInputElement>e.target).value;
+                        const name = (<Props>e.target).getAttribute('name');
+                        const value = (<Props>e.target).value;
 
                         isValid(name, value);
                     },
-                    blur: (e: Event) => {
+                    blur: (e: Props) => {
 
-                        const name = (<HTMLInputElement>e.target).getAttribute('name');
-                        const value = (<HTMLInputElement>e.target).value;
+                        const name = (<Props>e.target).getAttribute('name');
+                        const value = (<Props>e.target).value;
 
                         isValid(name, value);
                     },

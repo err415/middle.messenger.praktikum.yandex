@@ -1,17 +1,17 @@
 import Component from '../../../services/Component';
 import tpl from './tpl';
-
-export default class Item extends Component {
+type Props<P extends Record<string, unknown> = any> = { events?: Record<string, () => void> } & P;
+export default class Item extends Component<Props> {
     render(): DocumentFragment {
 
         return this.compile(tpl);
     }
 
     protected removeEvents() {
-        (this.element as HTMLElement).querySelectorAll('article').forEach(item => {
+        (this.element as Props).querySelectorAll('article').forEach((item: Props) => {
                 if (this.props.events != undefined) {
                     Object.entries(this.props.events).forEach(([key, value]) => {
-                        item.removeEventListener(key, value as () => void);
+                        item.removeEventListener(key, value as Props);
 
                     });
                 }
@@ -21,11 +21,11 @@ export default class Item extends Component {
     }
 
     protected addEvents() {
-        (this.element as HTMLElement).querySelectorAll('article').forEach(item => {
+        (this.element as Props).querySelectorAll('article').forEach((item: Props) => {
 
                 if (this.props.events != undefined) {
                     Object.entries(this.props.events).forEach(([key, value]) => {
-                        item.addEventListener(key, value as () => void);
+                        item.addEventListener(key, value as Props);
 
                     });
                 }

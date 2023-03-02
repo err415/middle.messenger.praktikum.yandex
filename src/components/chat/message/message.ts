@@ -1,7 +1,8 @@
 import Component from "../../../services/Component";
 import tpl from './tpl';
 
-export default class Message extends Component {
+type Props<P extends Record<string, unknown> = any> = { events?: Record<string, () => void> } & P;
+export default class Message extends Component<Props> {
 
     protected render(): DocumentFragment {
         return this.compile(tpl);

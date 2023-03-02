@@ -1,9 +1,9 @@
 import tpl from './tpl';
 import Component from "../../services/Component";
+type Props<P extends Record<string, unknown> = any> = { events?: Record<string, () => void> } & P;
+export default class Error404Page extends Component<Props> {
 
-export default class Error404Page extends Component {
-
-	constructor(tag = 'div', props: Record<string, unknown> = {}) {
+	constructor(tag = 'div', props: Props = {}) {
 		tag = 'section';
 		props['attr'] = {
 			class: 'wrapper-err-404',
