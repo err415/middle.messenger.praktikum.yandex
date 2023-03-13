@@ -1,5 +1,5 @@
 import renderDOM from "./utils/render";
-import './style.css';
+import './style.scss';
 import MainPage from "./pages/mainPage/main";
 import ProfilePage from "./pages/profilePage/profile";
 import SigninConfirmPage from "./pages/signinPage/ComfirmPage/signin-pass";

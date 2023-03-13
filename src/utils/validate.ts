@@ -3,10 +3,12 @@ export function isValidFirstName(value: string): boolean {
         const nameRegex = /^[a-zA-Z\\-]+$/;
         const validFirstName = value.match(nameRegex);
         if (validFirstName === null) {
+            console.log('TUTAAA')
             document.getElementsByClassName('valid-err--msg')[0].classList.add('view');
 
             return false;
         } else {
+            console.log('TUT')
             document.getElementsByClassName('valid-err--msg')[0].classList.remove('view');
             return true;
         }

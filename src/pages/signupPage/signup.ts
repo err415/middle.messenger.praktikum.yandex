@@ -2,9 +2,7 @@ import tpl from './tpl';
 import Component from "../../services/Component";
 import { Button } from "../../components/button/button";
 import {Field} from "../../components/field/field";
-import {
-    isValid
-} from '../../utils/validate';
+import { isValid } from '../../utils/validate';
 
 type Props<P extends Record<string, unknown> = any> = { events?: Record<string, () => void> } & P;
 
@@ -153,6 +151,7 @@ export default class SignupPage extends Component<Props> {
 
                         const name = (<Props>e.target).getAttribute('name');
                         const value = (<Props>e.target).value;
+                        console.log(name, value)
 
                         isValid(name, value);
                     },
