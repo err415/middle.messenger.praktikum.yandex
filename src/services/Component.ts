@@ -10,7 +10,7 @@ type BlockEvents<P = any> = {
 }
 type Props<P extends Record<string, unknown> = any> = { events?: Record<string, () => void> } & P;
 
-export default class Component<P extends Record<string, unknown> = any> {
+export default class Component<P extends Record<string, any> = any> {
     static EVENTS = {
         INIT: 'init',
         FLOW_CDM: 'flow:component-did-mount',
